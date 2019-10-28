@@ -7,7 +7,7 @@ var apiRouter = require('./routes/case');
 var app = express();
 var mongoose = require('mongoose');
 mongoose
-	.connect('mongodb://localhost:27017/crm-new', { promiseLibrary: require('bluebird') })
+	.connect('mongodb://mongo:27017/crm-new', { promiseLibrary: require('bluebird') })
 	.then(() => console.log('connection successful'))
 	.catch((err) => console.error(err));
 app.use(logger('dev'));
@@ -29,4 +29,8 @@ app.use(function(err, req, res, next) {
 	res.status(err.status || 500);
 	res.send(err.status);
 });
+const port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0', () =>
+  console.log(`Server is running on Port ${port}`)
+);
 module.exports = app;

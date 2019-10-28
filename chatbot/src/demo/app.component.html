@@ -1,0 +1,77 @@
+<script></script>
+
+<div class="maindiv">
+  <div class="leftdiv">
+    <h1></h1>
+    <div class="leftimg1">
+      <img class="imageClass" src="./assets/image/98-layers.png" />
+      <div>
+        <img class="imageClass1" src="./assets/image/43-layers.png" />
+        <div class="paragraphRight">
+          The Anthem Health Care Management Division has a singular dynamic
+          focus - to continually improve the system of health care delivery that
+          influences utilization and cost of services and measures performance.
+         
+        </div>
+      </div>
+      <div class="paragraphDown">
+        <p>
+          Case Assist - 
+          An integrated solution to enhance existing Case creation and Inquiry process, with an eye to improve customer experience, call intake count and accuracy of call handling.
+          
+          This AI based system uses context-aware speech-to-text eliminates the human interference on payer side by using a speech recognition system.
+          
+          Users can seamlessly interact with voice/chat bot to capture data related to a Prior Auth Medication. This data undergoes Anthem mandated and controlled data validation, before registering a case.
+          
+          Anthem, in collaboration with UST Global is bringing together customer engagement and digital automation into a single portfolio, targeting below improvisations in existing processes.
+          
+        </p>
+         <p>
+          Improve User Experience: Automated voice bot ensures reduced wait time for providers. Validation alongside data collection reduces need for additional call back. Also, 24*7 available application will enable users to inquire about a case without any wait time
+         </p>
+           
+          <p>
+          Improve Call Volume: With Case Assist acting as initial entry point for case information, UM Intake applications could handle ever increasing call intake volume. With new Line of Businesses being added in scope of  ACMS, Case Assist ensures to handle increasing call intake volume, without additional infrastructure scale up.
+          
+         </p>  
+          
+         <p>Improve Data Accuracy and reduced cycle time: Using Anthem proprietary Member/ Provider and Case information validation services, Case Assist performs real time validation of case related information that users input. Closed validation at entry point will ensure better quality of data input to UM application, reducing the average cycle time of a Case..<br />
+        </p>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="rightdiv" style="width:33%;height:500px;">
+    <div class="rightimg1">
+      <img class="image3" src="./assets/image/16-layers.png" />
+    </div>
+    <Chat-bot
+      class="chat-window"
+      [serviceid]="
+        '0AwytEuZlWShosO28uNtibIvw9onUxxN8lBLPpLuYIqBD5uu0j7QxZWkrpN0sJxD'
+      "
+      [msg]="msg"
+      [msgTemplate]="message"
+      [inputTemplate]="input"
+      (onMsgReceive)="onMsgReceive($event)"
+    >
+      <ng-template #window> </ng-template>
+    </Chat-bot>
+
+    <ng-template
+      #message
+      let-text="text"
+      let-object="object"
+      let-sendBy="sendBy"
+      let-options="options"
+    >
+      <chat-msg
+        [msg]="{ text: text, sendBy: sendBy, options: options }"
+      ></chat-msg>
+    </ng-template>
+    <ng-template #input>
+      <chat-input (msgToRoot)="msgFromChatInput($event)"></chat-input>
+    </ng-template>
+  </div>
+</div>

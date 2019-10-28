@@ -63,10 +63,12 @@
   float: left;
   margin-left: 10px;
   margin-right: 10px;
+  border-radius: 20px;
 }
 
 .button-center {
   width: 150px;
+  border-radius: 20px;
 }
 button:disabled {
   cursor: not-allowed;

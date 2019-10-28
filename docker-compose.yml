@@ -1,0 +1,47 @@
+version: '3.0'
+
+services:
+  chatbot:
+    image: chatbot
+    build: ./chatbot
+    ports:
+      - 4000:4000
+  provider-dashboard:
+    image: provider-dashboard
+    build: ./provider-dashboard
+    ports:
+      - 3000:3000
+    links:
+      - mongo
+  ltss:
+    image: ltss
+    build: ./ltss
+    ports:
+      - 3001:3001
+    links:
+      - mongo
+  crm:
+    image: crm
+    build: ./crm
+    ports:
+      - 4200:4200
+    links:
+      - mongo
+
+  member-service:
+    image: member-service
+    build: ./member-service
+    ports:
+      - 8081:8081
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - board-dbdata:/data/db
+volumes:
+  board-dbdata:
