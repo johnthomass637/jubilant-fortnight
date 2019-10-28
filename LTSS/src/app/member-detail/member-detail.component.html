@@ -1,0 +1,230 @@
+<app-header></app-header>
+<div>
+    <div class="proName">
+        Dashboard    >
+      </div>
+      <div class="proName">
+          Tasks    >
+     </div>
+     <div class="proName">
+        Monthly Contacts    >
+    </div>
+    
+    <div class="proName1">
+        Face to Face Contact Notes   >
+    </div>
+  <div style="margin-left: 1%;">
+    <table id="customers">
+        <tr>
+          <th colspan="6" id="tableth">Richard Mockmore</th>
+        </tr>
+        <tr>
+          <th>Member ID</th>
+          <th>Eligibility Start Date</th>
+          <th>Gender</th>
+          <th>Residence</th>
+          <th>Case Status</th>
+          <th>Case Owner</th>
+
+        </tr>
+        <tr>
+            <td>{{member.memberid}}</td>
+          <!-- <th>Eligibility Start Date</th> -->
+          <td>04/01/2016</td>
+          <td>Male</td>
+          <td>712-520-7070</td>
+          <td>{{member.status}}</td>
+          <td>LTSSPERF16 CSUP6</td>
+        </tr>
+       
+          <!-- <br> -->
+           <tr>
+              <th>DOB</th>
+              <th>Eligibility End Date</th>
+              <th>Language</th>
+              <th>Cell Phone</th>
+              <th>Case Status Reason</th>
+              <th>Secondary Case Owner</th>
+              
+            </tr> 
+           <tr>
+                <td>04/22/1975</td>
+                <td>12/31/2199</td>
+                <td>Unknown</td>
+                <td></td>
+                <td>Assigned</td>
+                <td></td>
+              </tr>
+              <tr>
+                  <th>Age</th>
+                  <th>LOC Date</th>
+                  <th>Living Arrangement</th>
+                  <th>Email</th>
+                  <th></th>
+                  <th></th>
+                  
+                </tr> 
+               <tr>
+                    <td>44</td>
+                    <td>{{member.cntdate}}</td>
+                    <td>Unknown</td>
+                    <td></td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+      </table>
+</div>
+
+</div>
+<app-sidebar></app-sidebar>
+
+<div style="margin-left: 17%;margin-top: 4%; width: 90%;">
+    <div class="content-set-container">
+
+    <div class="example-container mat-elevation-z8">
+      <!-- <div > -->
+        <!-- <span style="color: #2872B3;padding: 50px;"> Member ID : {{member.memberid}}</span> -->
+        <!-- <div class="sortDiv" st yle="float: right;"> -->
+          <!-- <button class="minimal buttonExport" style="color: #2872B3"> Export in Excel </button>        -->
+        <!-- </div> -->
+        <!-- <div class="clearfix"></div> -->
+        <!-- <hr> -->
+      <!-- </div>  -->
+
+
+      <!-- <div style="width: 100%;float: left;"> -->
+          <!-- <span style="float: left; width: 25%">
+              <div class="profile">
+                  <span style="font-size: 20px">{{member.memfirstname}} {{member.memlastname}}</span><br/>
+                  <span style="color: #3c8bc6;font-size: 14px;">Member ID:</span><br/>
+                  <span style="color: #3c8bc6">{{member.memberid}}</span>
+                </div>    
+          </span> -->
+    
+          <!-- <span style="float: right;width: 75%;"> -->
+              <!-- <table cellspacing="10">
+                  <tr>
+                    <td>
+                      <span class="contentHead">Member First Name</span><br>
+                      <span class="contentResult">{{member.memfirstname}}</span>
+                    </td>
+                    <td>
+                      <span class="contentHead">Member Last Name </span><br>
+                      <span class="contentResult">{{member.memlastname}}</span>
+                    </td>
+                    <td>
+                      <span class="contentHead">Contact person or entity</span><br>
+                      <span class="contentResult">{{member.cntentity}}</span>
+                    </td>                  
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <span class="contentHead">Contact date</span><br>
+                      <span class="contentResult">{{member.cntdate}}</span>
+                    </td>
+                    <td>
+                      <span class="contentHead">Location of Visit</span><br>
+                      <span class="contentResult">{{member.locofvis}}</span>
+                    </td>
+                    <td>
+                      <span class="contentHead">Contact Name</span><br>
+                      <span class="contentResult">{{member.cntname}}</span>
+                    </td>
+                  </tr>
+  
+                </table><br/> -->
+              <!-- </span> -->
+            <!-- </div> -->
+
+            <div style="width: 100%;float: left;">
+
+                    <span style="float: left;width: 100%;padding-left: 45px;background-color: #DAF3F9">
+                        <div style="margin-top: 15px">
+                            <span style="font-size: 16px;margin-left: 9px;">1.&nbsp;</span><span class="contentHeadQus">Did this contact include the interdisciplinary team members chosen by the member  :</span><br>
+                        <span class="contentResultAns">{{member.intdispmem}}</span>
+                     </div>
+
+                        <div style="margin-top: 15px">
+                            <span style="font-size: 16px;margin-left: 9px;">2.&nbsp;</span><span class="contentHeadQus">Is the member experiencing eligibility issue  :</span><br>
+                        <span class="contentResultAns">{{member.elgbleissue}}</span>
+                     </div>
+                 
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px;margin-left: 9px;">3.&nbsp;</span><span class="contentHeadQus">Are the member service correctly authorized :</span><br>
+                        <span class="contentResultAns">{{member.memserve}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px;margin-left: 9px;">4.&nbsp;</span><span class="contentHeadQus">If no, what steps have been taken to cover the service gaps :</span><br>
+                        <span class="contentResultAns">{{member.servegap}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px;margin-left: 9px;">5.&nbsp;</span><span class="contentHeadQus">Observation of the member’s physical condition i.e, skin, weight, visible injuries etc  :</span><br>
+                        <span class="contentResultAns">{{member.phycond}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px;margin-left: 9px;">6.&nbsp;</span><span class="contentHeadQus">Were any actions required to address the member’s physical changes  :</span><br>
+                        <span class="contentResultAns">{{member.phychange}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px;margin-left: 9px;">7.&nbsp;</span><span class="contentHeadQus">Any upcoming medical Appointments :</span><br>
+                        <span class="contentResultAns">{{member.medappnt}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px;margin-left: 9px;">8.&nbsp;</span><span class="contentHeadQus">Observation of the member’s mood and emotional well-being :</span><br>
+                        <span class="contentResultAns">{{member.moodemo}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px;margin-left: 9px;">9.&nbsp;</span><span class="contentHeadQus">Is member satisfied with current service and care :</span><br>
+                        <span class="contentResultAns">{{member.servcare}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px">10.&nbsp;</span><span class="contentHeadQus">Were any new risks identified for the member  :</span><br>
+                        <span class="contentResultAns">{{member.memrisk}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px">11.&nbsp;</span><span class="contentHeadQus">Restrictive intervention was applied to the member that was not included on the plan of care  :</span><br>
+                        <span class="contentResultAns">{{member.restintrv}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px">12.&nbsp;</span><span class="contentHeadQus">Did the meeting result in a change in the plan of care  :</span><br>
+                        <span class="contentResultAns">{{member.memresult}}</span>
+                     </div>
+
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px">13.&nbsp;</span><span class="contentHeadQus">Other topic discussed :</span><br>
+                        <span class="contentResultAns">{{member.othtopic}}</span>
+                     </div>
+                
+                     <div style="margin-top: 15px">
+                        <span style="font-size: 16px">14.&nbsp;</span><span class="contentHeadQus">Completed by  :</span><br>
+                        <span class="contentResultAns">{{member.nursename}}</span>
+                     </div>
+                    </span>
+            </div>
+
+              <span>
+               <br>
+               <br>
+                  <div style="float: left;">
+                    <button [routerLink]="['/member-edit', member._id]" class="editBtn"><img src="../../assets/edit.png"/> &nbsp;Edit</button>
+                    <button class="deleteBtn" (click)="deleteMember(member._id)"><img src="../../assets/delete.png"/> &nbsp;Delete</button>
+                  </div>
+    
+                  <!-- <div style="float: right;">
+                      <button class="validateBtn">VALIDATE</button>
+                    </div> -->
+              </span>
+</div><br>
+</div>
+
+</div>

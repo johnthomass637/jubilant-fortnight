@@ -1,0 +1,35 @@
+<div [ngSwitch]="msg.sendBy">
+  <div *ngSwitchCase="'bot'" class="msg" [class.show]="isVisible">
+    <mat-card class="card bot">
+      <mat-card class="icon">
+        <i class="material-icons">
+          android
+        </i>
+      </mat-card>
+      <mat-card-content>
+        {{msg.text}}
+      </mat-card-content>
+      <mat-card-content *ngFor="let option of msg.options">
+        <button
+          mat-raised-button
+          color="primary"
+		  [ngClass]="{
+            'button-center': msg.options.length > 2,
+            'button-left': msg.options.length == 2
+          }"
+          (click)="sendBtnMsg(option)"
+          [disabled]="!isBtnEnable"
+        >
+          {{ option }}
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div *ngSwitchCase="'user'" class="msg user-msg" [class.show]="isVisible">
+    <mat-card class="card user">
+      <mat-card-content>
+        {{msg.text}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

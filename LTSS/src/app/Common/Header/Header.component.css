@@ -1,0 +1,106 @@
+.header {
+	height: 65px;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0%;
+	right: 0;
+	z-index: 999;
+	
+	/* -webkit-box-shadow: 10px 7px 11px -5px rgba(115, 115, 115, 0.18);
+	-moz-box-shadow: 10px 7px 11px -5px rgba(115, 115, 115, 0.18);
+	box-shadow: 10px 7px 11px -5px rgba(115, 115, 115, 0.18);
+	 */
+}
+
+.proName {
+	margin-left: 2%;
+	float: left;
+	margin-top: 10px;
+	height: 45px;
+	color: #2571bb;
+	font-family: Poppins;
+	font-size: 30px;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+.proName1 {
+	margin-left: 2%;
+	float: left;
+	margin-top: 05px;
+	height: 45px;
+	color: #2571bb;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.proName2 {
+	margin-left: 2%;
+	float: left;
+	/* margin-top: 15px; */
+	height: 45px;
+	color: #8c8e90;
+	font-family: Arial;
+	font-size: 10px;
+	font-weight: 600;
+}
+
+
+.proName3 {
+	margin-right: 15%;
+	float: right;
+	/* margin-top: 15px; */
+	height: 45px;
+	color: #8c8e90;
+	font-family: Arial;
+	font-size: 10px;
+	font-weight: 600;
+}
+
+
+.proName4 {
+	margin-right: -22%;
+    float: right;
+    height: 45px;
+    color: #4a96d2;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+.proName5 {
+	margin-right: -1%;
+    float: right;
+    height: 45px;
+    color: #4a96d2;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+hr {
+    margin-top: 32px !important;
+    margin-bottom: 1rem;
+    border-top: 1px solid #4a96d2;
+    border-width: 02px;
+}
+
+/* .logo {
+	float: left;
+	margin-top: 05px;
+	height: 10px;
+} */
+
+
+.icon {
+	width: 40px;
+	height: 40px;
+	width: 21px;
+    height: 21px;
+    padding-right: 5px;
+    margin-right: 1px
+}
