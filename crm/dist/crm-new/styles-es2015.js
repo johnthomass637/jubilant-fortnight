@@ -338,7 +338,7 @@ if (content.locals) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\U83428\Desktop\Anthem Case Assist\Local Version\CRM\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /home/alen/Desktop/jubilant-fortnight/crm/src/styles.css */"./src/styles.css");
 
 
 /***/ })
