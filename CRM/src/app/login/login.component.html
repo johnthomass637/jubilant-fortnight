@@ -1,0 +1,11 @@
+<body>
+    <form (ngSubmit)="OnSubmit(f)" class="form-container" #f="ngForm" (keyup.enter)="login()">
+        <div class="loginDiv">
+            <label class="labelDiv"><i>Enterprise UM Intake</i></label><br>
+            <img src="../../assets/logo_anthem.png" class="logo"><br><br>
+            <input type="text" name="emailId" [ngModel]="config?.emailId" required id="emailId"  placeholder="Email"><br>
+            <input type="password" name="password" [ngModel]="config?.password" required id="password"  placeholder="Password"><br>
+            <button type="submit"  [disabled]="f.invalid">Next</button>
+        </div>
+    </form>    
+</body>

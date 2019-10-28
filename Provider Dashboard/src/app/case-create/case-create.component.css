@@ -1,0 +1,105 @@
+.example-form {
+	min-width: 150px;
+	max-width: 500px;
+	width: 100%;
+}
+.example-full-width {
+	width: 100%;
+}
+.example-full-width:nth-last-child() {
+	margin-bottom: 10px;
+}
+.button-row {
+	margin-top: 35px;
+	float: right;
+	width: 20%;
+}
+
+.example-container {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	max-height: 700px;
+	max-width: 90%;
+	overflow: auto;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.buttonExport {
+	width: 221px;
+	background-color: white;
+	padding: 0.5em 0.5em 0.5em 1em;
+}
+
+.buttonExport.minimal {
+	border: 1px solid;
+	border-radius: 30px;
+	float: right;
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
+}
+/* 
+.buttonExport.minimal:focus {
+	background-image: linear-gradient(45deg, #2cade0 50%, transparent 50%),
+		linear-gradient(135deg, transparent 50%, #2cade0 50%), linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
+	border-color: #2cade0;
+	outline: 0;
+} */
+
+.mat-form-field-infix {
+	width: 110px !important;
+}
+
+.errorClass {
+	color: red;
+	font-size: 12px;
+}
+
+.textboxClass {
+	width: 100%;
+	border-radius: 34px;
+	border: 1px solid #dddfe0;
+	background: #faf9fe;
+	padding: 8px;
+	margin-top: 5px;
+}
+
+.inputName {
+	padding: 5px;
+}
+
+.mat-raised-button[disabled]:not([class*=mat-elevation-z]) {
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, .2), 0 0 0 0 rgba(0, 0, 0, .14), 0 0 0 0 rgba(0, 0, 0, .12);
+	border-radius: 22px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+[type="date"] {
+	background: #faf9fe url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50%
+		no-repeat;
+}
+[type="date"]::-webkit-inner-spin-button {
+	display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+	opacity: 0;
+}
+
+.validateBtn {
+	background-color: #2571bb;
+	color: white;
+	padding: 5px 15px 5px 15px;
+	border-radius: 50px;
+	border: 0px;
+	width: 100px;
+}

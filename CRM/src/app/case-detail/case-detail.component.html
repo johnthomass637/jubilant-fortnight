@@ -1,0 +1,2462 @@
+<!-- <app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div style="margin-left: 15%;margin-top: 8%">
+
+  <div class="example-container mat-elevation-z8">
+    <div >
+      <span style="color: #2872B3;padding: 50px;"> Member ID : {{case.memberid}}</span>
+      <div class="sortDiv" style="float: right;">
+        <button class="minimal buttonExport" style="color: #2872B3"> Export in Excel </button>       
+      </div>
+      <div class="clearfix"></div>
+      <hr>
+    </div>
+
+
+    <div style="width: 100%;float: left;">
+      <span style="float: left; width: 25%">
+
+          <div class="profile">
+            <img class="icon" src="../../assets/photo.png"/><br/><br/>
+            <span>{{case.memname}}</span><br/>
+            <span style="color: #3c8bc6">Member ID:</span><br/>
+            <span style="color: #3c8bc6">{{case.memberid}}</span>
+          </div>
+
+      </span>
+
+      <span style="float: right;width: 75%;">
+              <table cellspacing="10">
+                <tr>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/dob.png"/></span><br>
+                    <span class="contentHead">DATE OF BIRTH</span><br>
+                    <span class="contentResult">{{case.dateofbirth}}</span>
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/start.png"/></span><br>
+                    <span class="contentHead">SERVICE START DATE</span><br>
+                    <span class="contentResult">{{case.startdate}}</span>
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/end.png"/></span><br>
+                    <span class="contentHead">SERVICE END DATE</span><br>
+                    <span class="contentResult">{{case.enddate}}</span>
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/procedure.png"/></span><br>
+                    <span class="contentHead">PROCDURE 
+                      
+
+                    </span><br>
+                    <span class="contentResult">{{case.procode}}</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/service.png"/></span><br>
+                    <span class="contentHead">SERVICE PROVIDER ID</span><br>
+                    <span class="contentResult">{{case.servicepvdid}}</span>
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/request.png"/></span><br>
+                    <span class="contentHead">REQUESTING PROVIDER ID</span><br>
+                    <span class="contentResult">{{case.requestpvdid}}</span>
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/diagnostic.png"/></span><br>
+                    <span class="contentHead">DIAGNOSTIC CODE</span><br>
+                    <span class="contentResult">{{case.diagcode}}</span>
+                  </td>
+                  <td>
+                    <span class="contentHead">STATUS</span><br>
+                    <span class="contentResult">{{case.status}}</span>
+                  </td>
+                </tr>
+
+              </table><br/>
+              <div style="float: left;">
+                <button [routerLink]="['/case-edit', case._id]" class="editBtn"><img src="../../assets/edit.png"/> &nbsp;Edit</button>
+                <button class="deleteBtn" (click)="deleteCase(case._id)"><img src="../../assets/delete.png"/> &nbsp;Delete</button>
+              </div>
+
+              <div style="float: right;">
+                  <button class="validateBtn">VALIDATE</button>
+                </div>
+      </span>
+    </div>
+
+  </div>
+</div>   -->
+
+
+<app-header></app-header>
+
+<main>
+<div style="margin-top: 8%">
+    <div className="tab-set-options">
+        <nav>
+          <div
+            class="nav nav-tabs"
+            id="nav-tab"
+            role="tablist"
+           
+          >
+            <a
+              class="nav-item nav-link active tab-set-option"
+              id="nav-member-tab"
+              data-toggle="tab"
+              href="#nav-member"
+              role="tab"
+              aria-controls="nav-member"
+              aria-selected="true"
+            >
+              Member
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-callerInfo-tab"
+              data-toggle="tab"
+              href="#nav-callerInfo"
+              role="tab"
+              aria-controls="nav-callerInfo"
+              aria-selected="false"
+            >
+              Caller Info
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-procedureSearch-tab"
+              data-toggle="tab"
+              href="#nav-procedureSearch"
+              role="tab"
+              aria-controls="nav-procedureSearch"
+              aria-selected="false"
+            >
+              Procedure and Diagnosis Search
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-ValidationCheck-tab"
+              data-toggle="tab"
+              href="#nav-ValidationCheck"
+              role="tab"
+              aria-controls="nav-ValidationCheck"
+              aria-selected="false"
+            >
+              Validation Check
+            </a>
+
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-benitSummary-tab"
+              data-toggle="tab"
+              href="#nav-benitSummary"
+              role="tab"
+              aria-controls="nav-benitSummary"
+              aria-selected="true"
+            >
+              Benefit Summary
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-caseDetails-tab"
+              data-toggle="tab"
+              href="#nav-caseDetails"
+              role="tab"
+              aria-controls="nav-caseDetails"
+              aria-selected="false"
+            >
+              Case Details
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-serviceDetails-tab"
+              data-toggle="tab"
+              href="#nav-serviceDetails"
+              role="tab"
+              aria-controls="nav-serviceDetails"
+              aria-selected="false"
+            >
+              Service Line Details
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-authorization-tab"
+              data-toggle="tab"
+              href="#nav-authorization"
+              role="tab"
+              aria-controls="nav-authorization"
+              aria-selected="false"
+            >
+              Authorization Summary
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-confirmation-tab"
+              data-toggle="tab"
+              href="#nav-confirmation"
+              role="tab"
+              aria-controls="nav-confirmation"
+              aria-selected="false"
+          >
+            Confirmation
+          </a>
+
+          </div>
+        </nav>
+      </div>
+
+      <div class="content-set-container">
+          <div class="tab-content" id="nav-tabContent">
+
+            
+            <div class="tab-pane fade show active" id="nav-member" role="tabpanel" aria-labelledby="nav-member-tab">
+                <div>
+                  <label class="infoLabel">Selected Member Information</label>
+                  <hr>
+                  <label style="margin-left: 50px; color: #2983C8">Member Details</label>
+                  <table cellspacing="10">
+                      <tr>
+                        <td>
+                          <span class="contentHead">Member First Name</span><br>
+                          <span class="contentResult">{{case.memname}}</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Member Last Name</span><br>
+                          <span class="contentResult">Thomas </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Date of Birth</span><br>
+                          <span class="contentResult">{{case.dateofbirth}}</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Physical Address 1</span><br>
+                          <span class="contentResult"> 8910 Purdue Road</span>
+                        </td>
+                        <td>
+                            <span class="contentHead">Physical Address Line 2</span><br>
+                            <span class="contentResult">St 301 </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Physical Recidency City</span><br>
+                          <span class="contentResult">Indianapolis </span>
+                        </td>
+                      </tr><br>
+      
+                      <tr>
+                          <td>
+                            <span class="contentHead">Physical Recidency State</span><br>
+                            <span class="contentResult"> IN </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">County</span><br>
+                            <span class="contentResult">Hamilton </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Country</span><br>
+                            <span class="contentResult"> USA</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Zip Code</span><br>
+                            <span class="contentResult"> 46268</span>
+                          </td>
+                          <td>
+                              <span class="contentHead">Member Age</span><br>
+                              <span class="contentResult">{{age}}</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Gender</span><br>
+                            <span class="contentResult">M </span>
+                          </td>
+                      </tr><br>
+
+                      <tr>
+                          <td>
+                            <span class="contentHead">Member Suffix</span><br>
+                            <span class="contentResult"> Mr</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Prefix</span><br>
+                            <span class="contentResult">YRP </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Group Name</span><br>
+                            <span class="contentResult">SBC MJM Electric Cooperative </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Member ID</span><br>
+                            <span class="contentResult">{{case.memberid}}</span>
+                          </td>
+                          <td>
+                              <span class="contentHead">Relationship to Subscriber</span><br>
+                              <span class="contentResult"> Self</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Dependent Member Number </span><br>
+                            <span class="contentResult"> </span>
+                          </td>
+                        </tr><br>
+
+                        <tr>
+                          <td>
+                            <span class="contentHead">Group ID</span><br>
+                            <span class="contentResult">0O244453 </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Subgroup ID</span><br>
+                            <span class="contentResult">0O01 </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Phone</span><br>
+                            <span class="contentResult">(656) 536-5656 </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Is phone in DNC list?</span><br>
+                            <span class="contentResult">N </span>
+                          </td>
+                          <td>
+                              <span class="contentHead">SSN</span><br>
+                              <span class="contentResult">***-**.9292 </span>
+                          </td>                        
+                        </tr>
+                    </table>
+                    <hr>
+              </div>
+
+              <div>
+                  <label style="margin-left: 50px; color: #2983C8">Plan Details</label>
+                  <hr style="margin-left: 50px;">
+                  <table cellspacing="10">
+                      <tr>
+                        <td>
+                          <span class="contentHead">Is member part of IHM/MHA/CCMU Account?</span><br>
+                          <span class="contentResult"> N</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Is member part of CCM Account?</span><br>
+                          <span class="contentResult">N </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">ERISA</span><br>
+                          <span class="contentResult"> Y</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">ACA</span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                            <span class="contentHead">Package ID</span><br>
+                            <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Product Combination Code</span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                      </tr><br>
+      
+                      <tr>
+                          <td>
+                            <span class="contentHead">Medical UM Intake Region</span><br>
+                            <span class="contentResult"> </span>
+                          </td>
+                      </tr><br>
+
+                    </table>
+                    <hr style="margin-left: 50px;">
+              </div>
+
+              <div>
+                  <label style="margin-left: 70px; color: #2983C8">Product Details</label>
+                  <table cellspacing="10" style="margin-left: 70px;">
+                      <tr>
+                          <th>Product</th>
+                          <th>Type</th>
+                          <th>Product Code</th>
+                          <th>Status</th>
+                          <th>HPCC Code</th>
+                          <th>Network Tiers</th>
+                          <th>Package Number</th>
+                          <th>Effective</th>
+                          <th>Termination</th>
+                          <th>State</th>
+                          <th>MSP</th>
+                        </tr>
+                      <tr>
+                        <td>
+                          <span class="contentResult"> Blue Access</span>
+                        </td>
+                        <td>
+                          <span class="contentResult">MED </span>
+                        </td>
+                        <td>
+                          <span class="contentResult"> AZAI0043</span>
+                        </td>
+                        <td>
+                          <span class="contentResult">Active </span>
+                        </td>
+                        <td>
+                            <span class="contentResult"> HPAU</span>
+                        </td>
+                        <td>
+                          <span class="contentResult">PR </span>
+                        </td>
+                        <td>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentResult">04/01/2019 </span>
+                        </td>
+                        <td>
+                          <span class="contentResult">12/31/2019 </span>
+                        </td>
+                        <td>
+                          <span class="contentResult">IN </span>
+                        </td>
+                        <td>
+                          <span class="contentResult"> </span>
+                        </td>
+                      </tr><br>
+      
+                      <tr>
+                          <td>
+                            <span class="contentHead">Does Member have Well Priority Product?</span><br>
+                            <span class="contentResult"> No</span>
+                          </td>
+                      </tr><br>
+
+                    </table>
+                    <hr style="margin-left: 50px;">
+              </div>
+
+              <div>
+                  <label style="margin-left: 50px; color: #2983C8">Funding Details</label>
+                  <table cellspacing="10">
+                      <tr>
+                       <td>
+                          <span class="contentHead">Funding Type</span><br>
+                          <span class="contentResult"> Fully Insured</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Business Type</span><br>
+                          <span class="contentResult"> Local </span>
+                        </td>            
+                        <td>
+                          <span class="contentHead"></span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead"></span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                            <span class="contentHead"></span><br>
+                            <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead"></span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                      </tr><br>
+                    </table>
+                    <hr>
+              </div>
+
+              <div>
+                  <label style="margin-left: 50px; color: #2983C8">Coverage Details</label>
+                  <table cellspacing="10">
+                      <tr>
+                        <td>
+                          <span class="contentHead">Group Name</span><br>
+                          <span class="contentResult"> SBC MJM Electric Cooperative</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Group Number</span><br>
+                          <span class="contentResult">00244453 </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">COB Indicator</span><br>
+                          <span class="contentResult"> N</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Excluded Group</span><br>
+                          <span class="contentResult"> NO</span>
+                        </td>
+                        <td>
+                            <span class="contentHead">Customer Service Number</span><br>
+                            <span class="contentResult"> NonCDHP:80034524600</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">ITS Home Partic</span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                      </tr><br>
+
+                    </table>
+                  <hr>
+              </div>
+
+              <div>
+                  <label style="margin-left: 50px; color: #2983C8">Member Verification</label>
+                  <table cellspacing="10">
+                      <tr>
+                        <td>
+                          <span class="contentHead"><input type="radio"/>HIPAA Verified-Name,DOB,Member ID </span><br>
+                          <span class="contentHead"><input type="radio"/>HIPAA Verified-Others</span><br>
+                          <span class="contentHead"><input type="radio"/>HIPAA Not Verified</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">HIPAA Notes</span><br>
+                          <span class="contentResult"><textarea></textarea> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead"></span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead"></span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                        
+                      </tr><br>
+
+                    </table>
+                  <hr>
+              </div>
+
+              <div>
+                  <label style="margin-left: 50px; color: #2983C8">Member Networks</label>
+                  <table cellspacing="10" style="margin-left: 50px;width: 25%">
+                      <tr>
+                          <th>Network ID</th>
+                          <th>Network Name</th>
+                        </tr>
+                      <tr>
+                          <td>
+                              <span class="contentResult">5478546987852 </span>
+                            </td>
+                            <td>
+                              <span class="contentResult">Blue Access Network </span>
+                            </td>
+                      </tr><br>
+
+                    </table>
+                  <hr>
+              </div>
+
+              <div>
+                  <label style="margin-left: 50px; color: #2983C8">Source System Details</label><br>
+                  <div style="margin-left: 50px;">
+                    <label>Member Source System</label><br>
+                    <input type="text"/> <br><br>
+                  </div>  
+                  <hr>
+              </div>
+
+              <div>
+                  <label style="margin-left: 50px; color: #2983C8">CIRS</label><br>
+                  <div style="margin-left: 50px;">
+                    <label>CIRS Indicator Flag</label><br>
+                    <input type="text"/> <br><br>
+                  </div>  
+                  <hr>
+              </div>
+     
+            </div>
+
+<!-- //////////////////////////////////////////////// Caller Info ///////////////////////////////////////////////// -->
+
+            <div class="tab-pane fade show" id="nav-callerInfo" role="tabpanel" aria-labelledby="nav-callerInfo-tab">
+                  <div>
+                      <label class="infoLabel"style="margin-left: 20px;">Caller Information</label>
+                      <hr style="margin-left: 30px;">
+                      <label style="margin-left: 50px; color: #2983C8">Caller Details</label><br>
+                      <table cellspacing="10">
+                          <tr>
+                            <td>
+                              <span class="contentHead">Caller Name</span><br>
+                              <span class="contentResult"> No Name</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Phone Number</span><br>
+                              <span class="contentResult"></span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Phone Extension</span><br>
+                              <span class="contentResult"> </span>
+                            </td>
+                            
+                          </tr><br>
+          
+                          <tr>
+                              <td>
+                                <span class="contentHead">Caller Type</span><br>
+                                <span class="contentResult">Provider </span>
+                              </td>
+                              <td>
+                                <span class="contentHead">Relationship to Patient</span><br>
+                                <span class="contentResult"> Provider(Provider Rep)</span>
+                              </td>
+                              <td>
+                                  <span class="contentHead">Reason for Call</span><br>
+                                  <span class="contentResult"> Initial Authorization Request </span>
+                              </td>
+                          </tr><br>
+
+                          <tr>
+                              <td>
+                                <span class="contentHead">TFN</span><br>
+                                <span class="contentResult"> </span>
+                              </td>                             
+                          </tr><br>
+
+                        </table>
+                        <hr style="margin-left: 50px;">
+                  </div>
+    
+    
+                  <div>
+                      <label style="margin-left: 50px; color: #2983C8">Provider Details</label>
+                      <table cellspacing="10">
+                          <tr>
+                            <td>
+                              <span class="contentHead">Provider Tax ID</span><br>
+                              <span class="contentResult">{{case.servicepvdid}}</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Provider Name</span><br>
+                              <span class="contentResult"> Ryan</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Provider NPI</span><br>
+                              <span class="contentResult">1665428445 </span>
+                            </td>               
+                          </tr><br>   
+    
+                        </table>
+                        <hr style="margin-left: 50px;">
+                  </div>
+    
+                  <div>
+                      <label style="margin-left: 50px; color: #2983C8">Member Details</label>
+                      <table cellspacing="10">
+                          <tr>
+                           <td>
+                              <span class="contentHead">Member ID</span><br>
+                              <span class="contentResult"> {{case.memberid}}</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Member Name</span><br>
+                              <span class="contentResult">{{case.memname}} </span>
+                            </td>            
+                            <td>
+                              <span class="contentHead"></span><br>
+                              <span class="contentResult"> </span>
+                            </td>                         
+                          </tr><br>
+
+                        </table>
+                        <hr>
+                  </div>
+            </div>
+
+
+  <!-- //////////////////////////////////////////////// Procedure Search ///////////////////////////////////////////////// -->
+
+            <div class="tab-pane fade show" id="nav-procedureSearch" role="tabpanel" aria-labelledby="nav-procedureSearch-tab">
+                <div>
+                    <label class="infoLabel"style="margin-left: 20px;">Procedure and Diagnostic Search</label>
+                    <table cellspacing="10">
+                        <tr>
+                          <td>
+                            <span class="contentHead">Auth Profile</span><br>
+                            <span class="contentResult"> </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Auth Type</span><br>
+                            <span class="contentResult">Inpatient </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Case Type</span><br>
+                            <span class="contentResult">Medical </span>
+                          </td>
+                          
+                        </tr><br>
+        
+                        <tr>
+                            <td>
+                              <span class="contentHead">Place of Service</span><br>
+                              <span class="contentResult"> Inpatient Hospital</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Type of Service</span><br>
+                              <span class="contentResult"> Medical Care</span>
+                            </td>
+                            <td>
+                                <span class="contentHead"></span><br>
+                                <span class="contentResult"> </span>
+                            </td>
+                        </tr><br>
+
+                        <tr>
+                            <td>
+                              <span class="contentHead">From</span><br>
+                              <span class="contentResult"> {{case.startdate}}</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Through</span><br>
+                              <span class="contentResult">{{case.enddate}} </span>
+                            </td>
+                            <td>
+                                <span class="contentHead">Service Days</span><br>
+                                <span class="contentResult">{{diff}} </span>
+                            </td>
+                        </tr><br>
+
+                      </table><br>
+                </div>
+
+                <div>
+                    <label style="margin-left: 20px; color: #2983C8">Pre-C/Pre-D Check List</label><br>
+                    <label style="margin-left: 50px; color: #2983C8">Procedure Codes</label>
+                    <table cellspacing="10" style="margin-left: 70px;width: 95%;border: 1px solid grey">
+                        <tr>
+                            <th style="width: 100%">Primary Code Set | Code | Description & Information</th>        
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span class="contentResult" style="text-transform: uppercase"> {{case.procode}}
+                              <input type="radio" style="float: left;"/>
+                              <table cellspacing="10" style="float: right">
+                                  <tr>
+                                      <td>
+                                        <span class="contentHead">Place of Service</span><br>
+                                        <span class="contentResult">Inpatient Hospital </span>
+                                      </td>
+                                      <td>
+                                        <span class="contentHead">Type of Service</span><br>
+                                        <span class="contentResult"> Medical Care</span>
+                                      </td>
+                                      <td>
+                                        <span class="contentHead">Days</span><br>
+                                        <span class="contentResult"> 1</span>
+                                      </td>
+                                      <td>
+                                        <span class="contentHead">Qty</span><br>
+                                        <span class="contentResult"> 1</span>
+                                      </td>
+                                      <td>
+                                        <span class="contentHead">From</span><br>
+                                        <span class="contentResult">{{case.startdate}} </span>
+                                      </td>
+                                       <td>
+                                        <span class="contentHead">Through</span><br>
+                                        <span class="contentResult"> {{case.enddate}}</span>
+                                      </td>                                     
+                                      <td>
+                                        <span class="contentHead">Type</span><br>
+                                        <span class="contentResult"> Unit(s)</span>
+                                      </td>
+                                      <td>
+                                        <span class="contentHead">Bilateral Codes</span><br>
+                                        <span class="contentResult"> RT</span>
+                                      </td>
+                                  </tr>  
+                                </table>
+                                <label style="width: 100%;background-color: rgb(233, 235, 117);">This is a Bi-Lateral code</label>
+                                <br>
+                            </span>
+                          </td>
+                        </tr><br>   
+
+                      </table><br>
+                </div>
+  
+                <div>
+                    <label style="margin-left: 70px; color: #2983C8">Diagnosis Codes</label>
+                    <div style="margin-left: 70px;border: 1px solid grey">
+                    <table cellspacing="10" style="margin-left:0px;width: 100%;">
+                        <tr>
+                            <th>Code Set</th>
+                            <th>Code</th>
+                            <th>Primary Code</th>
+                            <th>Description & Information</th>                           
+                          </tr>
+                        <tr>
+                          <td>
+                            <span class="contentResult"> ICD01 Diagnosis</span>
+                          </td>
+                          <td>
+                            <span class="contentResult" style="text-transform: uppercase">{{case.diagcode}} </span>
+                          </td>
+                          <td>
+                            <span class="contentResult"> </span>
+                          </td>
+                          <td>
+                            <span class="contentResult">TUBERCULOSIS OF SPINE </span>
+                          </td>
+                        </tr><br>                                
+                      </table><br>
+                      </div><br>
+                </div>
+
+                <div>
+                    <label style="margin-left: 70px; color: #2983C8">Length of Stay</label>
+                    <div style="margin-left: 70px;border: 1px solid grey">
+                    <table cellspacing="10" style="margin-left:0px;width: 100%;">
+                        <tr>
+                            <th>Line Type</th>
+                            <th>From</th>
+                            <th>Through</th>
+                            <th>Service Days</th>  
+                            <th>Level of Care</th>                                                    
+                          </tr>
+                        <tr>
+                          <td>
+                            <span class="contentResult">Initial Request</span>
+                          </td>
+                          <td>
+                            <span class="contentResult">{{case.startdate}}</span>
+                          </td>
+                          <td>
+                            <span class="contentResult">{{case.enddate}}  </span>
+                          </td>
+                          <td>
+                            <span class="contentResult">{{diff}}</span>
+                          </td>
+                          <td>
+                              <span class="contentResult">Medical</span>
+                            </td>
+                        </tr><br> 
+                        <tr>
+                          <td>
+                            <span class="contentResult">Initial Decision</span>
+                          </td>
+                          <td>
+                            <span class="contentResult"> {{case.startdate}}</span>
+                          </td>
+                          <td>
+                            <span class="contentResult">{{case.enddate}}</span>
+                          </td>
+                          <td>
+                            <span class="contentResult">{{diff}}</span>
+                          </td>
+                          <td>
+                              <span class="contentResult">Medical</span>
+                            </td>
+                        </tr><br>       
+
+                      </table><br>
+                    </div><br>
+                </div>
+            </div>
+
+  <!-- //////////////////////////////////////////////// Validation Check ///////////////////////////////////////////////// -->
+
+            <div class="tab-pane fade show" id="nav-ValidationCheck" role="tabpanel" aria-labelledby="nav-ValidationCheck-tab">
+                <div>
+                  <label class="infoLabel">Member eligibility</label>    
+                  <table cellspacing="10">
+                    <tr>
+                      <td>
+                        <span class="contentHead">Eligible for DOS from?</span><br>
+                        <span class="contentResult">Yes</span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Eligible for DOS To?</span><br>
+                        <span class="contentResult">Yes</span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                  <br>
+
+                <div>
+                  <label class="infoLabel">Anthem primary details </label><br>
+                  <table cellspacing="10">
+                    <tr>
+                      <td>
+                        <span class="contentHead">Is Anthem primary?</span>
+                        <span class="contentResult"></span>
+                      </td>
+                      <td>
+                        <span class="contentHead"><input type="checkbox" name="anthem" value="" /> Override</span>                        
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                 <hr>
+  
+                <div>
+                  <label  style="color: #2983C8">Servicing Provider/Facility </label><br>
+                  <table cellspacing="10">
+                    <label class="infoLabel">Servicing Provider</label>
+                      <tr>
+                        <td>
+                          <span class="contentHead">Tax ID</span>
+                          <span class="contentResult">311459812</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">ePIN</span>
+                          <span class="contentResult"></span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Sutter</span>
+                          <span class="contentResult">No</span>
+                        </td>
+                        <td>
+                          <span class="contentHead" style="color: #2983C8">More info</span>
+                          <span class="contentResult"></span>
+                        </td>                      
+                      </tr>
+                      <tr>
+                          <td>
+                            <span class="contentHead">In Network: &nbsp;</span>
+                            <span class="contentResult"> 
+                              <select name="network" id="network">
+                                  <option value="select">select</option>
+                              </select> 
+                            </span>
+                          </td>
+                        </tr>
+                      <br>
+                    <label class="infoLabel">Servicing Facility</label>
+                      <tr>
+                        <td>
+                          <span class="contentHead">NPI</span>
+                          <span class="contentResult">1675215896 </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Tax ID</span><br>
+                          <span class="contentResult">3014589652 </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Sutter</span><br>
+                          <span class="contentResult">No </span>
+                        </td>                        
+                      </tr>
+                      <tr>
+                          <td>
+                            <span class="contentHead">In Network: &nbsp;</span>
+                            <span class="contentResult"> 
+                              <select name="network" id="network">
+                                  <option value="select">select</option>
+                              </select> 
+                            </span>
+                          </td>
+                        </tr>
+                      <br>              
+                    <label class="infoLabel">Pre-C/Pre-D Check Results</label><br>
+                    <label class="infoLabel">Case Details</label><br>
+                      <tr>
+                        <td>
+                          <span class="contentHead">Plan of Service</span><br>
+                          <span class="contentResult"> Inpatient Hospital</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Type of Service</span><br>
+                          <span class="contentResult"> Medical Care</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">From Date</span><br>
+                          <span class="contentResult">{{case.startdate}} </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Through Date</span><br>
+                          <span class="contentResult"> {{case.enddate}}</span>
+                        </td>                     
+                      </tr>
+                      <br>
+                  </table>
+                </div>
+  
+                <div>
+                  <label style="margin-left: 70px; color: #2983C8">Procedure Codes</label>
+                  <table cellspacing="10" style="margin-left: 70px;">
+                    <tr>
+                      <th>Code Set</th>
+                      <th>Place of Service-Type of Service</th>
+                      <th>From-Through</th>
+                      <th>Vendor Delegate</th>
+                      <th>TPA Delegated</th>
+                      <th>Pre-C/Pre-D</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="contentResult">29870 Primary </span>
+                      </td>
+                      <td>
+                        <span class="contentResult"> Inpatient Hospital-Medical Care</span>
+                      </td>
+                      <td>
+                        <span class="contentResult">{{case.startdate}}-{{case.enddate}}</span>
+                      </td>
+                      <td>
+                        <span class="contentHead"><input type="checkbox" name="anthem" value="" >Yes Override</span>
+                      </td>
+                      <td>
+                        <span class="contentResult"> Not Applicable</span>
+                      </td>
+                      <td>
+                        <span class="contentResult">Precertification </span>
+                      </td>
+                    </tr>
+                    <br>
+                  </table>
+                </div>
+
+                <div>
+                  <label style="margin-left: 70px; color: #2983C8">Diagnosis Codes</label>
+                  <table cellspacing="10" style="margin-left: 70px;">
+                    <tr>
+                      <th>Code Set</th>
+                      <th>Code</th>
+                      <th>Description</th>
+                      <th>Primary Code</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="contentResult">ICD10 Diagnosis </span>
+                      </td>
+                      <td>
+                        <span class="contentResult" style="text-transform: uppercase">{{case.diagcode}}</span>
+                      </td>
+                      <td>
+                        <span class="contentResult"> TUBERCULOSIS OF SPINE</span>
+                      </td>
+                      <td>
+                        <span class="contentHead"><input type="radio" name="anthem" value="" /></span>
+                      </td>                              
+                    </tr>
+                    <br>
+                  </table>
+                </div>
+            </div>
+            
+
+  <!-- //////////////////////////////////////////////// Benit Summary ///////////////////////////////////////////////// -->
+            
+            <div class="tab-pane fade show" id="nav-benitSummary" role="tabpanel" aria-labelledby="nav-benitSummary-tab">
+              <div>
+                <label class="infoLabel"style="margin-left: 20px; font-size: larger;">Benefit Summary</label><br>
+                  <div style="float: left; width: 50%">
+                    <span class="infoLabel"style="margin-left: 35px;">Provider Details</span><br>
+                    <span class="contentHead" style="margin-left: 35px;"></span><br>
+                    <table style="margin-left: 35px;" cellspacing="10">
+                      <tr>
+                        <td>
+                          <span class="contentHead">Tax ID:</span>
+                          <span class="contentResult"> 31148579</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">ePIN:</span>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Sutter:</span>
+                          <span class="contentResult">NO </span>
+                        </td>
+                        <td>
+                          <span class="contentHead" style="color:#2571bb;">More Info </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <span class="contentHead">In Network: &nbsp;</span>
+                          <span class="contentResult"> 
+                            <select name="network" id="network">
+                                <option value="select">select</option>
+                            </select> 
+                          </span>
+                        </td>
+                      </tr>
+                      <br>
+                    </table>
+                  </div>
+
+                  <div style="float: right; width: 50%">
+                    <span class="infoLabel"style="margin-right: 35px;">Facility Details</span><br>
+                    <span class="contentHead"></span><br>
+                    <table style="margin-left: 1px;" cellspacing="10">
+                      <tr>
+                          <td>
+                              <span class="contentHead">NPI</span>
+                              <span class="contentResult">1678549523</span>
+                            </td>
+                        <td>
+                          <span class="contentHead">Tax ID:</span>
+                          <span class="contentResult">34015268 </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">ePIN:</span>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Sutter:</span>
+                          <span class="contentResult">No </span>
+                        </td>
+                        <td>
+                          <span class="contentHead" style="color:#2571bb;">More Info</span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <span class="contentHead">In Network: &nbsp;</span>
+                          <span class="contentResult"> 
+                            <select name="network" id="network">
+                              <option value="select">select</option>
+                            </select> 
+                          </span>
+                        </td>
+                      </tr>
+                      <br>
+                    </table>
+                  </div>  
+                </div>
+
+                <div style="width: 100%">
+                  <span class="infoLabel"style="margin-left: 35px;">Case Details</span><br>
+                  <table style="margin-left: 35px;" cellspacing="5">
+                    <tr>
+                      <td>
+                        <span class="contentHead">Benefits available for service?</span>
+                        <span class="contentResult"> Yes</span>
+                      </td>
+                      <td>
+                        <span class="contentHead" style="padding-left: -10px;">Is provider requesting a benefit exception review?</span>
+                        <span class="contentResult"> </span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Has lifetime limit been met?</span>
+                        <span class="contentResult">No </span>
+                      </td>
+                      <td>                  
+                      </td>
+                      <td>                                
+                      </td>
+                    </tr>
+                    <br>
+                  </table>
+                </div>
+  
+                <div>
+                  <br>
+                  <label style="margin-left: 30px; color: #2983C8">Benefit Details</label>
+                  <table cellspacing="10" style="margin-left: 30px; border: 1px solid grey">
+                    <tr>
+                      <th>Code</th>
+                      <th>Place of Service</th>
+                      <th>Type of Service</th>
+                      <th>From</th>
+                      <th>Through</th>
+                      <th>TPA Delegated</th>
+                      <th>Pre-C/Pre-D</th>
+                      <th>Benefit Covered?</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="contentResult">29870 </span>
+                      </td>
+                      <td>
+                        <span class="contentResult">Inpatient Hospital </span>
+                      </td>
+                      <td>
+                        <span class="contentResult"> Medical Care</span>
+                      </td>
+                      <td>
+                        <span class="contentResult"> {{case.startdate}}</span>
+                      </td>
+                      <td>
+                        <span class="contentResult">{{case.enddate}}</span>
+                      </td>
+                      <td>
+                        <span class="contentResult"> Not Applicable</span>
+                      </td>
+                      <td>
+                        <span class="contentResult">PreCertification </span>
+                      </td>
+                      <td>
+                        <span class="contentResult">Covered OON </span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+
+
+  <!-- //////////////////////////////////////////////// Case Details ///////////////////////////////////////////////// -->
+
+            <div class="tab-pane fade show" id="nav-caseDetails" role="tabpanel" aria-labelledby="nav-caseDetails-tab">
+              
+                <div>
+                  <div style="float: left;width: 50%">
+                      <label class="infoLabel" style="margin-left: 20px; color: #2983C8">Case Details</label>
+                      <table cellspacing="10" style="width: 100%">
+                          <tr>
+                            <td style="width: 50%;">
+                              <span class="contentHead">Authorization Type</span><br>
+                              <span class="contentResult">Inpatient Hospital </span>
+                            </td>
+                            <td style="width: 50%;">
+                              <span class="contentHead">Case Type</span><br>
+                              <span class="contentResult">Medical </span>
+                            </td><br>
+                          </tr>
+                          <tr>
+                            <td style="width: 50%;">
+                              <span class="contentHead">Type of Service</span><br>
+                              <span class="contentResult">Medical Care </span>
+                            </td>
+                            <td style="width: 50%;">
+                              <span class="contentHead">Place of Service</span><br>
+                              <span class="contentResult"> Inpatient Hospital</span>
+                            </td>
+                            <br>
+                            </tr>
+                          <tr>
+                            <td style="width: 50%;">
+                                <span class="contentHead">Service from Date</span><br>
+                                <span class="contentResult"> {{case.startdate}}</span>
+                              </td>
+                            <td style="width: 50%;">
+                                <span class="contentHead">Service Through Date</span><br>
+                                <span class="contentResult"> {{case.enddate}}</span>
+                              </td><br>
+                            </tr>
+    
+                            <tr>
+                            <td style="width: 50%;">
+                                <span class="contentHead">Service Days</span><br>
+                                <span class="contentResult"> {{diff}}</span>
+                              </td>
+                            <td style="width: 50%;">
+                                <span class="contentHead">UM Type</span><br>
+                                <span class="contentResult"> Medical </span>
+                              </td>                                                    
+                            </tr>
+
+                            <tr>
+                            <td style="width: 50%;">
+                                <span class="contentHead">Method of Receipt</span><br>
+                                <span class="contentResult"> E-Review</span>
+                              </td>
+                            <td style="width: 50%;">
+                                <span class="contentHead">Review Type</span><br>
+                                <span class="contentResult"> Retrospective</span>
+                              </td>                                                    
+                            </tr>
+
+                            <tr>
+                            <td style="width: 50%;">
+                                <span class="contentHead">Actual Admit Date </span><br>
+                                <span class="contentResult">{{case.startdate}} </span>
+                              </td>
+                            <td style="width: 50%;">
+                                <span class="contentHead">Level of Service</span><br>
+                                <span class="contentResult"> Elective</span>
+                              </td>                                                    
+                            </tr>
+
+                            <tr>
+                            <td style="width: 50%;">
+                                <span class="contentHead">Is this request COC?</span><br>
+                                <span class="contentResult">No </span>
+                              </td>
+                            <td style="width: 50%;">
+                                <span class="contentHead">Is this request TOC?</span><br>
+                                <span class="contentResult"> No</span>
+                              </td>                                                    
+                            </tr>
+                        </table>
+                  </div>
+
+                  <div style="float: right;width: 50%">
+                      <label class="infoLabel" style="margin-left: 20px; color: #2983C8">Provider Details</label><br>
+                      <label style="margin-left: 40px;">Community Health Center</label>
+                        <table cellspacing="10" >
+                          <tr>
+                            <td style="width: 25%;">
+                              <span class="contentHead">Tax ID</span>
+                              <span class="contentResult"> 31149586</span>
+                            </td>
+                            <td style="width: 25%;">
+                              <span class="contentHead">ePIN</span>
+                              <span class="contentResult"> </span>
+                            </td>
+                            <td style="width: 25%;">
+                              <span class="contentHead">Sutter</span>
+                              <span class="contentResult">No </span>
+                              </td>
+                            <td style="width: 25%;">
+                              <span style="color: #2983C8">More Info</span>
+                            </td>
+                          </tr>                          
+                        </table>
+                        <br>
+
+                      <label style="margin-left: 20px; color: #2983C8">Facility Details</label><br>
+                      <label style="margin-left: 40px;">Community Health Center</label>
+                        <table cellspacing="10" >
+                          <tr>
+                            <td style="width: 25%;">
+                              <span class="contentHead">NPI</span>
+                              <span class="contentResult">179525919</span>
+                            </td>
+                            <td style="width: 25%;">
+                              <span class="contentHead">Tax ID</span>
+                              <span class="contentResult"> 347014584</span>
+                            </td>
+                            <td style="width: 25%;">
+                              <span class="contentHead">Sutter</span>
+                              <span class="contentResult"> No</span>
+                            </td>
+                            <td style="width: 25%;">
+                              <span style="color: #2983C8">More Info</span>                            
+                            </td>
+                          </tr>                          
+                        </table>
+                        <br>  
+
+                      <label style="margin-left: 20px; color: #2983C8">Other Indicators</label><br>
+                        <table cellspacing="10" style="width: 55%">
+                          <tr>
+                            <td style="width: 25%;">
+                              <span class="contentHead">Reimbursement </span>
+                              <span class="contentResult"> </span>
+                            </td>
+                            <td style="width: 25%;">
+                              <span class="contentHead">Pre-Op Day Indicator</span>
+                              <span class="contentResult"> </span>
+                            </td>                            
+                          </tr>                          
+                        </table>
+                        <br>  
+                  </div>
+                </div>          
+                <div class="clearfix"></div>
+                <hr>
+
+
+                <div>
+                    <div style="float: left;width: 50%"> 
+                        <table cellspacing="10" style="width: 55%">
+                            <tr>
+                              <td style="width: 50%;">
+                                <span class="contentHead" style="color: #2983C8">Requesting Provider</span><br>
+                                <span class="contentResult"> </span>
+                              </td>
+                              <td style="width: 50%;">
+                                <span class="contentHead" style="color: #2983C8">Ordering Provider</span><br>
+                                <span class="contentResult"> </span>
+                              </td><br>
+                            </tr>
+                          </table><br>
+
+                          <div>
+                              <label style="margin-left: 50px; color: #2983C8">Diagnosis Codes</label>
+                              <div style="margin-left: 50px;border: 1px solid grey">
+                                <table cellspacing="10" style="margin-left:0px;width: 100%;">
+                                  <tr>
+                                      <th>Code Set</th>
+                                      <th>Code</th>
+                                      <th>Primary Code</th>
+                                      <th>Description & Information</th>                           
+                                    </tr>
+                                  <tr>
+                                    <td>
+                                      <span class="contentResult"> ICD10 Diagnosis</span>
+                                    </td>
+                                    <td>
+                                      <span class="contentResult" style="text-transform: uppercase">{{case.diagcode}} </span>
+                                    </td>
+                                    <td>
+                                      <span class="contentResult"> </span>
+                                    </td>
+                                    <td>
+                                      <span class="contentResult"> TUBERCULOSIS OF SPINE </span>
+                                    </td>
+                                  </tr><br>                                
+                                </table><br>
+                              </div><br>
+                          </div>
+                    </div>
+  
+                    <div style="float: right;width: 50%">
+                        <label style="margin-left: 20px; color: #2983C8">Discharge Details</label>
+                        <table cellspacing="10" style="width: 100%">
+                            <tr>
+                              <td style="width: 35%;">
+                                <span class="contentHead">Actual Discharge Date</span><br>
+                                <span class="contentResult"> </span>
+                              </td>
+                              <td style="width: 30%;">
+                                  <span class="contentHead">Discharge Disposition</span><br>
+                                  <span class="contentResult"> </span>
+                              </td>
+                              <td style="width: 35%;">
+                                <span class="contentHead">Additional Discharge Disposition</span><br>
+                                <span class="contentResult"> </span>
+                              </td><br>
+                            </tr>
+                           
+                          </table><br>
+
+
+                          <label style="margin-left: 20px; color: #2983C8">Case Letter Suppression</label>
+                          <table cellspacing="10" style="width: 100%">
+                            <tr>
+                              <td style="width: 15%;">
+                               <input type="checkbox"/> &nbsp;<span class="contentHead">ALL</span>
+                              </td>
+                              <td style="width: 15%;">
+                                <input type="checkbox"/>&nbsp; <span class="contentHead">Member</span>
+                              </td>
+                              <td style="width: 15%;">
+                                <input type="checkbox"/>&nbsp; <span class="contentHead">Requesting</span>
+                              </td>
+                              <td style="width: 15%;">
+                                <input type="checkbox"/>&nbsp; <span class="contentHead">Servicing</span>
+                              </td>
+                              <td style="width: 15%;">
+                                <input type="checkbox"/>&nbsp; <span class="contentHead">Facility</span>
+                              </td><br>
+                            </tr>
+                          </table><br>
+
+
+                          <label style="margin-left: 20px; color: #2983C8">Other Details</label>
+                          <table cellspacing="10" style="width: 100%">
+                            <tr>
+                              <td style="width: 25%;">
+                                <span class="contentHead">Cash Received Date & Time</span><br>
+                                <span class="contentResult"><input type="text"/> </span>
+                              </td>
+                              <td style="width: 25%;">
+                                  <span class="contentHead">Medical Record Number</span><br>
+                                  <span class="contentResult"><input type="text"/> </span>
+                              </td>
+                              <td style="width: 25%;">
+                                <span class="contentHead">Transplant Indicator</span><br>
+                                <span class="contentResult">
+                                        <select name="select">
+                                            <option value="select">select</option>
+                                        </select> 
+                                </span>
+                              </td>
+                              <td style="width: 25%;">
+                                <span class="contentHead">Clinical Present?</span><br>
+                                <span class="contentResult">
+                                     <select name="select">
+                                        <option value="select">select</option>
+                                        </select> 
+                                </span>
+                              </td><br>
+                            </tr>
+                           
+                          </table><br>
+                    </div>
+                  </div>
+            </div>
+
+
+  <!-- //////////////////////////////////////////////// Service Details///////////////////////////////////////////////// -->
+
+            <div class="tab-pane fade show" id="nav-serviceDetails" role="tabpanel" aria-labelledby="nav-serviceDetails-tab">
+                <div>
+                    <div style="float: left;width: 43%">
+                      <label style="margin-left: 20px; color: #2983C8">Service Line Details</label><br>
+                       <label style="width: 60%; margin-left: 33px; color: #2983C8">Case Details</label>
+                       <table cellspacing="10" style="width: 100%">
+                        <!-- <tr>
+                          <th style="background-color: #ffffff; color:black">Place of Service</th>
+                          <th style="background-color: #ffffff; color:black">Type of Service</th>
+                          <th style="background-color: #ffffff; color:black">From Date</th>
+                          <th style="background-color: #ffffff; color:black">Through Date</th>
+                          <br>
+                        </tr> -->
+                        <tr>
+                            <td >
+                              <span class="contentHead">Place of Service</span>
+                              <span class="contentResult">Inpatient Hospital </span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Type of Service</span>
+                              <span class="contentResult">Medical Care </span>
+                            </td>
+                            <td>
+                                <span class="contentHead">From Date</span>
+                                <span class="contentResult"> {{case.startdate}}</span>
+                              </td>
+                            <td>
+                                <span class="contentHead">Through Date</span>
+                                <span class="contentResult"> {{case.enddate}}</span>                                
+                              </td>
+                          </tr>  
+                      </table><br>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div style="float: left; width: 50%">
+                        <span class="infoLabel"style="margin-left: 35px;">Provider Details</span><br>
+                        <span class="contentHead" style="margin-left: 35px;"></span><br>
+                        <table style="margin-left: 35px;" cellspacing="10">
+                          <tr>
+                            <td>
+                              <span class="contentHead">Tax ID:</span>
+                              <span class="contentResult"> 311458919</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">ePIN:</span>
+                              <span class="contentResult"> </span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Sutter:</span>
+                              <span class="contentResult"> No</span>
+                            </td>
+                            <td>
+                              <span class="contentHead" style="color:#2571bb;">More Info </span>
+                            </td>
+                          </tr>
+    
+                          <tr>
+                            <td>
+                              <span class="contentHead">In Network: &nbsp;</span>
+                              <span class="contentResult"> 
+                                <select name="network" id="network">
+                                    <option value="select">select</option>
+                                </select> 
+                              </span>
+                            </td>
+                          </tr>
+                          <br>
+                        </table>
+                      </div>
+    
+                      <div style="float: right; width: 50%">
+                        <span class="infoLabel"style="margin-right: 35px;">Facility Details</span><br>
+                        <span class="contentHead"></span><br>
+                        <table style="margin-left: 1px;" cellspacing="10">
+                          <tr>
+                             <td>
+                              <span class="contentHead">NPI</span>
+                              <span class="contentResult"> 16792595343</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Tax ID:</span>
+                              <span class="contentResult"> 347014584</span>
+                            </td>                          
+                            <td>
+                              <span class="contentHead">Sutter:</span>
+                              <span class="contentResult">No </span>
+                            </td>
+                            <td>
+                              <span class="contentHead" style="color:#2571bb;">More Info</span>
+                            </td>
+                          </tr>
+    
+                          <tr>
+                            <td>
+                              <span class="contentHead">In Network: &nbsp;</span>
+                              <span class="contentResult"> 
+                                <select name="network" id="network">
+                                  <option value="select">select</option>
+                                </select> 
+                              </span>
+                            </td>
+                          </tr>
+                          <br>
+                        </table>
+                      </div>  
+
+
+                  <br>
+    
+                  <div>
+                    <label style="margin-left: 50px; margin-top: 25px; color: #2983C8">Service Line Details</label><br>
+                  </div>
+                  <div style="border: 1px solid grey;margin-left: 2.5%;margin-right: 2.5%;">
+                      <table style="margin-left: 0px;">
+                        <tr>
+                            <th>Code</th>
+                            <th>Place of Service</th>
+                            <th>Type of Service</th>
+                            <th>From</th>
+                            <th>Through</th>
+                            <th>Vendor Delegate</th>
+                            <th>TPA Delegated</th>
+                            <th>Pre-C/Pre-D</th>                           
+                        </tr>
+                          <tr>
+                            <td>
+                              <span class="contentResult"> 29870</span>
+                            </td>
+                            <td>
+                              <span class="contentResult"> Inpatient Hospital </span>
+                            </td>
+                            <td>
+                              <span class="contentResult">Medical Care </span>
+                            </td>
+                            <td>
+                              <span class="contentResult"> {{case.startdate}} </span>
+                            </td>
+                            <td>
+                              <span class="contentResult">{{case.enddate}} </span>
+                            </td>
+                            <td>
+                              <span class="contentResult"> Yes </span>
+                            </td>
+                            <td>
+                              <span class="contentResult">Not Applicable </span>
+                            </td>
+                            <td>
+                              <span class="contentResult"> PreCertification </span>
+                            </td>
+                            </tr>
+                            <tr>
+                              <td colspan="8">
+                                <hr>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="8">
+                              <div class="hrbox">
+                                  <label style="margin-left: 50px; margin-top: 25px; font-size: 12px; font-weight:bold">Duration</label><br>
+                                  <table cellspacing="10" style="width: 55%">
+                                   
+                                      <tr>
+                                          <td style="width: 10%;" colspan="7">
+                                              <span class="contentHead">Qty</span><br>
+                                              <span class="contentResult"> 1</span>
+                                            </td>
+                                        <td style="width: 10%;">
+                                          <span class="contentHead">Types</span><br>
+                                          <span class="contentResult">Unit(s) </span>
+                                        </td>
+                                        <td style="width: 10%;">
+                                          <span class="contentHead">per every</span><br>
+                                          <span class="contentResult"> </span>
+                                        </td>
+                                        <td style="width: 10%;">
+                                            <span class="contentHead">Freq</span><br>
+                                            <span class="contentResult"> </span>
+                                          </td>
+                                        <td style="width: 10%;">
+                                            <span class="contentHead">Qualifier</span><br>
+                                            <span class="contentResult"> </span>
+                                        </td>
+                                        <td style="width: 10%;">
+                                            <span class="contentHead">For</span><br>
+                                            <span class="contentResult"> </span>
+                                        </td>
+                                        <td style="width: 10%;">
+                                            <span class="contentHead">Duration</span><br>
+                                            <span class="contentResult"> </span>
+                                        </td>
+                                        <td style="width: 10%;">
+                                             <span class="contentHead">Qualifier</span><br>
+                                             <span class="contentResult"> </span>
+                                        </td>
+                                        <td style="width: 10%;">
+                                             <span class="contentHead">Dose</span><br>
+                                             <span class="contentResult"> </span>
+                                        </td>
+                                        <td style="width: 20%;">
+                                           <span class="contentHead">Total Units/Visits:</span><br>
+                                           <span class="contentResult"> </span>
+                                        </td>
+                                      </tr>                          
+                                  </table><br>
+                                  <hr>
+                                  <label style="margin-left: 50px; margin-top: 25px; font-size: 15px; font-weight:bold">BI-LATERAL CODE DETAILS</label><br>
+                                  <table cellspacing="10" style="width: 55%">
+                                   
+                                      <tr>
+                                          <td style="width: 10%;" colspan="7">
+                                              <span class="contentHead">Bi-Lateral Codes</span><br>
+                                              <span class="contentResult"> Right</span>
+                                            </td>
+                                        <td style="width: 10%;">
+                                          <span class="contentHead">Modifier</span><br>
+                                          <span class="contentResult">RT </span>
+                                        </td>
+                                        <td style="width: 10%;">
+                                          <span class="contentHead">Modifier Description</span><br>
+                                          <span class="contentResult">Right Side(used to identify procedures performed on the right side of the body) </span>
+                                        </td>                                       
+                                      </tr>                          
+                                  </table><br>
+
+                                  <label style="margin-left: 50px; margin-top: 25px; font-size: 15px; font-weight:bold">OTHER DETAILS</label><br>
+                                  <table cellspacing="10" style="width: 55%">
+                                   
+                                      <tr>
+                                          <td style="width: 10%;" colspan="7">
+                                              <span class="contentHead">Request Receipt</span><br>
+                                              <span class="contentResult"> 10/03/2019</span>
+                                            </td>                                                                     
+                                      </tr> 
+                                      <tr>
+                                          <td style="width: 10%;" colspan="7">
+                                              <span class="contentHead">Dollar Amount</span><br>
+                                              <span class="contentResult"> </span>
+                                            </td>                                                                     
+                                      </tr>                         
+                                  </table><br>
+
+                                  <label style="margin-left: 50px; margin-top: 25px; font-size: 15px; font-weight:bold">LETTER SUPPRESSION INDICATOR</label><br>
+                                  <table cellspacing="10" style="width: 55%">
+                                   
+                                      <tr>
+                                          <td>
+                                            <span class="contentHead"><input type="checkbox"/> &nbsp; ALL</span><br>
+                                          </td>
+                                          <td >
+                                            <span class="contentHead"><input type="checkbox"/> &nbsp; Member </span><br>
+                                          </td>
+                                          <td>
+                                            <span class="contentHead"><input type="checkbox"/> &nbsp; Requesting </span><br>
+                                          </td>
+                                          <td>
+                                            <span class="contentHead"><input type="checkbox"/> &nbsp; Servicing </span><br>
+                                          </td>
+                                          <td>
+                                            <span class="contentHead"><input type="checkbox"/> &nbsp; Facility </span><br>
+                                          </td>
+                                          <td>
+                                            
+                                          </td>  
+                                                   
+                                        </tr>                       
+                                  </table><br>
+                                
+                                </div><br>
+                                <div style="float: left; width: 50%">
+                                    <span class="contentHead" style="margin-left: 35px;font-size: 15px; font-weight:bold">Service Provider/Facility</span><br>
+                                    <span class="contentHead" style="margin-left: 40px;font-size: 15px; font-weight:bold">Servicing Provider</span><br>
+                                    <table style="margin-left: 35px;" cellspacing="10">
+                                      <tr>
+                                        <td>
+                                          <span class="contentHead">Tax ID:</span>
+                                          <span class="contentResult"> 347014584</span>
+                                        </td>
+                                        <td>
+                                          <span class="contentHead">ePIN:</span>
+                                          <span class="contentResult"> </span>
+                                        </td>
+                                        <td>
+                                          <span class="contentHead">Sutter:</span>
+                                          <span class="contentResult"> No</span>
+                                        </td>
+                                        <td>
+                                          <span class="contentHead" style="color:#2571bb;">More Info </span>
+                                        </td>
+                                      </tr>
+                
+                                      <tr>
+                                        <td>
+                                          <span class="contentHead">Is In Network: &nbsp;</span><br>
+                                          <span class="contentResult"> 
+                                            <select name="network" id="network">
+                                                <option value="select">select</option>
+                                            </select> 
+                                          </span>
+                                        </td>
+                                      </tr>
+                                      <br>
+                                    </table>
+                                  </div><br>
+                              </td>
+                            </tr>
+                          </table>
+                  </div><br><br>
+                  </div>
+            </div>  
+
+
+  <!-- //////////////////////////////////////////////// Authorization ///////////////////////////////////////////////// -->
+
+            <div class="tab-pane fade show" id="nav-authorization" role="tabpanel" aria-labelledby="nav-authorization-tab">
+              
+                <div>
+                    <label class="infoLabel">Authorization Summary</label>
+                    <table cellspacing="2">
+                        <tr>
+                          <td>
+                            <span class="contentHead">CRM ID</span><br>
+                            <span class="contentResult" style="text-transform: uppercase">{{case._id | slice:6:12}}</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Case ID</span><br>
+                            <span class="contentResult" style="text-transform: uppercase">I-{{case._id.substring(15,21)}}</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">MMS ID</span><br>
+                            <span class="contentResult" style="text-transform: uppercase">UM{{case._id.substring(20,24)}} </span>
+                          </td>
+                          <td></td><td></td>
+                        </tr><br>
+                        </table>                  
+                   <span class="contentHead" style="margin-left: 50px; "><input type="checkbox"/> Do you have an alternate member address?</span><br>
+                           
+                      <hr>
+                </div>
+  
+                <div>
+                    <label style="margin-left: 50px; color: #2983C8">Procedure Codes</label>
+                    <div style="margin-left: 55px;margin-right: 20px;border: 1px solid grey">
+                        <table cellspacing="10" style="margin-left: 0px;">
+                          <tr>
+                            <th>Code</th>
+                            <th>Place of Service</th>
+                            <th>Type of Service</th>
+                            <th>From</th>
+                            <th>Through</th>
+                            <th>Vendor Delegate</th>
+                            <th>TPA Delegated</th>
+                            <th>Pre-C/Pre-D</th>
+                          </tr>
+                          <tr>
+                            <th>29870</th>
+                            <th>Inpatient Hospital</th>
+                            <th>Medical Care</th>
+                            <th>{{case.startdate}}</th>
+                            <th>{{case.enddate}}</th>
+                            <th>Yes</th>
+                            <th>Not Applicable</th>
+                            <th>PreCertification</th>
+                          </tr>
+                          <label style="margin-left: 10px; color: #2983C8">Status</label>
+                          <tr>
+                            <td>
+                              <span class="contentHead">Status</span><br>
+                              <span class="contentResult">{{case.status}}</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Status Reason </span><br>
+                              <span class="contentResult">Under Review</span>
+                            </td>
+                            <td>
+                              <span class="contentHead"> Request Receipt</span><br>
+                              <span class="contentResult">{{case.updated_date}}</span>
+                            </td>
+                            <td colspan="2">
+                              <span class="contentHead"> Provider Notified of Missing Clinical </span><br>
+                              <span class="contentResult"></span>
+                            </td>
+                            
+                            <td>
+                              <span class="contentHead"> All Information Received</span><br>
+                              <span class="contentResult"></span>
+                            </td>
+                            <td>
+                              <span class="contentHead"> Qty</span><br>
+                              <span class="contentResult">1</span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Type </span><br>
+                              <span class="contentResult">Unit(s)</span>
+                            </td>  
+                                     
+                          </tr>
+                        </table>
+                      </div><br>
+                </div>
+  
+                <hr>
+
+                <div>
+                    <label style="margin-left: 50px; color: #2983C8">Case Owner </label>
+                    <table cellspacing="10">
+                        <tr>
+                         <td>
+                            <span class="contentHead">Case Owner Domain ID</span><br>
+                            <span class="contentResult"> </span>
+                          </td>
+                          <td colspan="6">
+                            <span class="contentHead">Case Owner Name</span><br>
+                            <span class="contentResult"> </span>
+                          </td>            
+                          <td>
+                            
+                          </td>
+                          <td>
+                            
+                          </td>
+                          <td>
+                             
+                          </td>
+                          <td>
+                            
+                          </td>
+                        </tr><br>
+                      </table>
+                      <hr>
+                </div>
+  
+                <div>
+                    <label style="margin-left: 50px; color: #2983C8">Task List/Queue</label>
+                    <table cellspacing="10">
+                        <tr>
+                          <td>
+                            <span class="contentHead">Task List/Queue</span><br>
+                            <span class="contentResult"> </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Task Due Date & Time</span><br>
+                            <span class="contentResult"> </span>
+                          </td>
+                          <td>
+                            
+                          </td>
+                          <td>
+                            
+                          </td>
+                          <td>
+                              
+                          </td>
+                          <td>
+                            
+                          </td>
+                        </tr><br>
+  
+                      </table>
+                    <hr>
+                </div>
+
+                <div>
+                    <label style="margin-left: 50px; color: #2983C8">Clinical & Non-Clinical Note Summary </label>
+                    <table cellspacing="10">
+                        <tr>
+                         <td>
+                            <!-- <span class="contentHead">Case Owner Domain ID</span><br>
+                            <span class="contentResult"> </span> -->
+                          </td>
+                          <td colspan="6">
+                            <!-- <span class="contentHead">Case Owner Name</span><br>
+                            <span class="contentResult"> </span> -->
+                          </td>            
+                          <td>
+                            
+                          </td>
+                          <td>
+                            
+                          </td>
+                          <td>
+                             
+                          </td>
+                          <td>
+                            
+                          </td>
+                        </tr><br>
+                      </table>
+                      <hr>
+                </div>
+  
+                <div>
+                    <label style="margin-left: 50px; color: #2983C8">Wrap Up</label>
+                    <table cellspacing="10">
+                        <tr>
+                          <td>
+                            <span class="contentHead">Wrap-up Reason</span><br>
+                            <span class="contentResult">Case created </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Comments</span><br>
+                            <span class="contentResult"> </span>
+                          </td>
+                          <td>
+                            
+                          </td>
+                          <td>
+                            
+                          </td>
+                          <td>
+                              
+                          </td>
+                          <td>
+                            
+                          </td>
+                        </tr><br>
+  
+                      </table>
+                    <hr>
+                </div>
+
+                <div>
+                    <label style="margin-left: 50px; color: #2983C8">Case Details</label>
+                    <table cellspacing="2">
+                        <tr>
+                          <td>
+                            <span class="contentHead">Place of Service</span><br>
+                            <span class="contentResult">Inpatient Hospital</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Type of Service</span><br>
+                            <span class="contentResult">Medical Care</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">From Date</span><br>
+                            <span class="contentResult">{{case.startdate}}</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Through Date</span><br>
+                            <span class="contentResult">{{case.enddate}}</span>
+                          </td>
+                          <td></td>
+                        </tr><br>
+                        </table>                                             
+                      <!-- <hr> -->
+
+                      <div style="float: left; width: 50%;">
+                    <span class="infoLabel"style="margin-left: 50px;">Provider Details</span><br>
+                    <span class="contentHead" style="margin-left: 50px;">aswdwed</span><br>
+                    <table style="margin-left: 50px;" cellspacing="10">
+                      <tr>
+                        <td>
+                          <span class="contentHead">Tax ID:</span>
+                          <span class="contentResult"> 311459815</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">ePIN:</span>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Sutter:</span>
+                          <span class="contentResult">No </span>
+                        </td>
+                        <td>
+                          <span class="contentHead" style="color:#2571bb;">More Info </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <span class="contentHead">In Network: &nbsp;</span>
+                          <span class="contentResult"> 
+                            <select name="network" id="network">
+                                <option value="select">select</option>
+                            </select> 
+                          </span>
+                        </td>
+                      </tr>
+                      <br>
+                    </table>
+                  </div>
+
+                  <div style="float: right; width: 50%">
+                    <span class="infoLabel"style="margin-right: 35px;">Facility Details</span><br>
+                    <span class="contentHead"></span><br>
+                    <table style="margin-left: 1px;" cellspacing="10">
+                      <tr>
+                          <td>
+                              <span class="contentHead">NPI</span>
+                              <span class="contentResult">1694585231 </span>
+                            </td>
+                        <td>
+                          <span class="contentHead">Tax ID:</span>
+                          <span class="contentResult"> 340714585</span>
+                        </td>
+                        <td>
+                          <span class="contentHead">ePIN:</span>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Sutter:</span>
+                          <span class="contentResult"> No</span>
+                        </td>
+                        <td>
+                          <span class="contentHead" style="color:#2571bb;">More Info</span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <span class="contentHead">In Network: &nbsp;</span>
+                          <span class="contentResult"> 
+                            <select name="network" id="network">
+                              <option value="select">select</option>
+                            </select> 
+                          </span>
+                        </td>
+                      </tr>
+                      <br>
+                    </table>
+                  </div> 
+                </div>
+                <div class="clearfix"></div>
+
+                <div>
+                    <label style="margin-left: 50px; color: #2983C8">Member Details</label>
+                    <table cellspacing="10">
+                        <tr>
+                          <td>
+                            <span class="contentHead">Full Name</span><br>
+                            <span class="contentResult"> {{case.memname}}</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">DOB</span><br>
+                            <span class="contentResult">{{case.dateofbirth}} </span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Member ID</span><br>
+                            <span class="contentResult"> {{case.memberid}}</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Group#</span><br>
+                            <span class="contentResult"> 00244453</span>
+                          </td>
+                          <td>
+                            <span class="contentHead">Sequence</span><br>
+                            <span class="contentResult"> 0</span>
+                          </td>
+                          <td>
+                            
+                          </td>
+                        </tr><br>
+  
+                      </table>
+                    <hr>
+                </div>
+
+
+
+
+                <div>
+                    <label style="margin-left: 50px; color: #2983C8">Length of Stay</label>
+                    <div style="margin-left: 55px;margin-right: 20px;border: 1px solid grey">
+                        <table cellspacing="10" style="margin-left: 0px;">
+                          <tr>
+                            <th>Line Type</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Service Days</th>
+                            <th>Level of Care</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <th>Initial Request</th>
+                            <th>{{case.startdate}}</th>
+                            <th>{{case.enddate}}</th>
+                            <th>{{diff}}</th>
+                            <th>Medical</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                          <label style="margin-left: 10px; color: #2983C8">Review Details</label>
+                          <tr>
+                            <td>
+                              <span class="contentHead">Review Type</span><br>
+                              <span class="contentResult">Continued Stay</span>
+                            </td>
+                            <td colspan="2">
+                              <span class="contentHead">Request Receipt Date & Time  </span><br>
+                              <span class="contentResult">10/03/2019 9:24AM</span>
+                            </td>
+                            <td colspan="2">
+                              <span class="contentHead">Provider Notified of Missing Clinical</span><br>
+                              <span class="contentResult"></span>
+                            </td>
+                            <td colspan="2">
+                              <span class="contentHead"> All Information Received Date & Time</span><br>
+                              <span class="contentResult"></span>
+                            </td>
+                            <td>
+                              
+                            </td>
+                            <td>
+                              
+                            </td>  
+                                     
+                          </tr>
+                          <label style="margin-left: 10px; color: #2983C8">Letter Suppression Indicator</label>
+                          <tr>
+                            <td>
+                              <span class="contentHead"><input type="checkbox"/> &nbsp; ALL</span><br>
+                            </td>
+                            <td >
+                              <span class="contentHead"><input type="checkbox"/> &nbsp; Member </span><br>
+                            </td>
+                            <td>
+                              <span class="contentHead"><input type="checkbox"/> &nbsp; Requesting </span><br>
+                            </td>
+                            <td>
+                              <span class="contentHead"><input type="checkbox"/> &nbsp; Servicing </span><br>
+                            </td>
+                            <td>
+                              <span class="contentHead"><input type="checkbox"/> &nbsp; Facility </span><br>
+                            </td>
+                            <td>
+                              
+                            </td>  
+                                     
+                          </tr>
+                        </table>
+                      </div><br>
+                </div>
+
+                <div>
+                    <div style="margin-left: 55px;margin-right: 20px;border: 1px solid grey">
+                        <table cellspacing="10" style="margin-left: 0px;">
+                          <tr>
+                            <th>Line Type</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Service Days</th>
+                            <th>Level of Care</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <th>Initial Dicision</th>
+                            <th>{{case.startdate}}</th>
+                            <th>{{case.enddate}}</th>
+                            <th>{{diff}}</th>
+                            <th><select>
+                              <option value="select">select</option>
+                            </select> </th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                          <label style="margin-left: 10px; color: #2983C8">Status</label>
+                          <tr>
+                            <td>
+                              <span class="contentHead">Status</span><br>
+                              <span class="contentResult"> {{case.status}}  </span>
+                            </td>
+                            <td>
+                              <span class="contentHead">Status Reason </span><br>
+                              <span class="contentResult">Under Review</span>
+                            </td>
+                            <td>
+                              <span class="contentHead"> Decision Date & Time</span><br>
+                              <span class="contentResult">10/3/19 9:46AM</span>
+                            </td>
+                            <td colspan="2">
+                             
+                            </td>
+                            
+                            <td>
+                              
+                            </td>
+                            <td>
+                              
+                            </td>
+                            <td>
+                              
+                            </td>  
+                                     
+                          </tr>
+                        </table>
+                      </div><br>
+                </div>
+                <hr>
+                <div style="float: left;width: 50%"> 
+                  <div>
+                    <label style="margin-left: 50px; color: #2983C8">Diagnosis Codes</label>
+                    <div style="margin-left: 50px;border: 1px solid grey">
+                      <table cellspacing="10" style="margin-left:0px;width: 100%;">
+                        <tr>
+                            <th>Code Set</th>
+                            <th>Code</th>
+                            <th>Description & Information</th>
+                            <th>Primary Code</th>                           
+                          </tr>
+                        <tr>
+                          <td>
+                            <span class="contentResult"> ICD10 Diagnosis</span>
+                          </td>
+                          <td>
+                            <span class="contentResult"  style="text-transform: uppercase">{{case.procode}}</span>
+                          </td>
+                          <td>
+                            <span class="contentResult"> TUBERCULOSIS OF SPINE</span>
+                          </td>
+                          <td>
+                              <span class="contentResult"><input type="radio"/> </span>
+                          </td>
+                        </tr><br>                                
+                      </table><br>
+                    </div><br>
+                  </div>
+                </div>  
+                <div style="float: right;width: 50%"> 
+                    
+                </div>  
+                <div class="clearfix"></div>
+
+              <hr>
+              <div>
+                  <label style="margin-left: 50px; color: #2983C8">Discharge Details</label>
+                  <table cellspacing="10">
+                      <tr>
+                        <td>
+                          <span class="contentHead">Actual Discharge Date</span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Discharge Disposition</span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          <span class="contentHead">Additional Discharge Disposition</span><br>
+                          <span class="contentResult"> </span>
+                        </td>
+                        <td>
+                          
+                        </td>
+                        <td>
+                          
+                        </td>
+                        <td>
+                          
+                        </td>
+                      </tr><br>
+
+                    </table>
+              </div>
+            </div>
+
+
+  <!-- //////////////////////////////////////////////// Confirmation ///////////////////////////////////////////////// -->
+
+            <div class="tab-pane fade show" id="nav-confirmation" role="tabpanel" aria-labelledby="nav-confirmation-tab">
+                <div>
+                  <label class="infoLabel"  style="margin-left: 20px; color: #2983C8">Member Details</label>
+                  <table cellspacing="10">
+                    <tr>
+                      <td>
+                        <span class="contentHead">Member</span><br>
+                        <span class="contentResult">{{case.memname}} </span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Date of Birth</span><br>
+                        <span class="contentResult">{{case.dateofbirth}}</span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Member id</span><br>
+                        <span class="contentResult">{{case.memberid}}</span>
+                      </td>                    
+                    </tr>      
+                  </table>
+                  <br>
+                </div>
+                <hr style="margin-left: 50px;">
+
+                <div style="margin-left:60px">
+                  <label style="margin-left:00px;color: #2983C8">MMS Information</label>
+                  <table cellspacing="10" style="margin-left:0%">
+                    <tr>
+                      <td colspan="7"></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="contentHead">MMS ID</span><br>
+                        <span class="contentResult"><input type="text" style="text-transform: uppercase" value="UM{{case._id.substring(20,24)}}" disabled></span>
+                      </td>
+                      <td>
+                        <span class="contentHead">MMS System</span><br>
+                        <span class="contentResult"><input type="text" value="ACMP" disabled></span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Department Name</span><br>
+                        <span class="contentResult"><input type="text" disabled></span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Case Owner First Name</span><br>
+                        <span class="contentResult"><input type="text" disabled></span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Case Owner Last Name</span><br>
+                        <span class="contentResult"><input type="text" disabled></span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Case Owner Id</span><br>
+                        <span class="contentResult"><input type="text" disabled></span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Case Owner Phone</span><br>
+                        <span class="contentResult"><input type="text" disabled></span>
+                      </td>
+                    </tr>
+                  </table>
+                  <br>
+                </div>
+                <hr>
+
+                <div style="margin-right: auto">
+                  <label style="margin-left: 50px; color: #2983C8">General Information </label>
+                  <table cellspacing="10">
+                    <tr>
+                      <td>
+                        <span class="contentHead">Case Id</span><br>
+                        <!-- <span class="contentResult"> {{case._id | slice:1:6}}</span> -->
+                        <span class="contentResult" style="text-transform: uppercase">I-{{case._id.substring(15,21)}}</span>
+            
+                      </td>
+                      <td>
+                        <span class="contentHead">CRM ID</span><br>
+                        <span class="contentResult" style="text-transform: uppercase">{{case._id | slice:6:12}}</span>
+                      </td>  
+                      <td>                         
+                      </td> 
+                      <td>
+                      </td>                      
+                    </tr>
+                  </table>
+                  <hr style="margin-left: 50px;">
+                  <table cellspacing="10">  
+                    <tr>
+                      <td>
+                        <span class="contentHead">Created</span><br>
+                        <span class="contentResult">3d ago</span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Last Update</span><br>
+                        <span class="contentResult">3d ago</span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Status</span><br>
+                        <span class="contentResult">Resolved-completed</span>
+                      </td>
+                      <td>
+                      </td> 
+                    </tr>
+                  </table>
+                  <hr style="margin-left: 50px;">
+                  <table cellspacing="10">  
+                    <tr>
+                      <td>
+                        <span class="contentHead">Created By</span><br>
+                        <span class="contentResult">Manager</span>
+                      </td>
+                      <td>
+                        <span class="contentHead">Last Updated by</span><br>
+                        <span class="contentResult">Manager</span>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                    </tr>                                                      
+                  </table>
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+</div>
+</main> 

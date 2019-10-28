@@ -1,0 +1,88 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+
+<main style="overflow: hidden;">
+    <div style="margin-left: 15%;margin-top: 10%">
+        <!--<label style="margin-left: 1.5%;margin-bottom: 1%"> Realtime updates of  Case List</label>-->
+        <div class="clearfix"></div>
+        <div class="counter card blueCard">
+            <div class="card-body">
+                <div class="count">
+                    {{total}}
+                </div>   
+                <hr>
+                <div class="entity">Total Case List</div>           
+            </div>
+        </div>
+
+        <div class="counter card greenCard">
+            <div class="card-body">
+                <div class="count">
+                    {{submitted}}
+                </div>   
+                <hr>
+                <div class="entity">Approved Case List</div>
+            </div>
+        </div>
+
+        <div class="counter card redCard">
+            <div class="card-body">
+                <div class="count">
+                    {{rejected}}
+                </div>   
+                <hr>
+                <div class="entity">Denied Case List</div>           
+            </div>
+        </div>
+
+        <div class="counter card orangeCard">
+            <div class="card-body">
+                <div class="count">
+                    {{pending}}
+                </div>   
+                <hr>
+                <div class="entity">Pending Case List</div>            
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+        <div class="graph" style="float: left;">
+            <div class="graphentity">
+                Case List Bar Chart Report
+            </div>
+            <div class="clearfix"></div><br>
+            <canvas id="myChart" width="20" height="10" ></canvas>
+        </div>
+		
+        <div class="graph">
+            <div class="graphentity">
+                Case List Doughnut Report
+            </div>
+            <div class="clearfix"></div><br>
+            <canvas id="myChart1" width="20" height="10"></canvas>
+			<!--<marquee behavior="scroll" direction="up" style="width=20px; height:250px;">
+			Congratulations! Case created for Mathews has been <mark class="code-green">Approved!</mark>
+			<br/>
+			<br/>			
+			Few priority cases are in <mark class="code-yellow">Pending</mark> status..
+			<br/>	
+			<br/>	
+			<br/>				
+			Please take action on the following:
+			<br/>	
+			<b>Aswin</b> created in January.
+			<br/>
+			<b>Albert</b> created in April.
+			<br/>	
+			<br/>
+			<br/>
+			Case created for Abraham has been <mark class="code-red">Denied</mark>. The member may have to resubmit the claim.
+			<br/>
+			<br/>			
+			Oops! Jack's case has been <mark class="code-red">Cancelled</mark>...	
+			</marquee>-->
+        </div>
+    </div>
+</main>

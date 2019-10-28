@@ -1,0 +1,136 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div style="margin-left: 15%;margin-top: 8%">
+
+  <div class="example-container mat-elevation-z8">
+    <div >
+      <span style="color: #2872B3;padding: 50px;"> Member ID : {{case.memberid}}</span>
+      <div class="sortDiv" style="float: right;">
+        <button class="minimal buttonExport" style="color: #2872B3"> Export in Excel </button>       
+      </div>
+      <div class="clearfix"></div>
+      <hr>
+    </div>
+
+
+    <div style="width: 100%;float: left;">
+      <span style="float: left; width: 25%">
+
+          <div class="profile">
+            <img class="icon" src="../../assets/photo.png"/><br/><br/>
+            <span>{{case.memname}}</span><br/>
+            <span style="color: #3c8bc6">Member ID:</span><br/>
+            <span style="color: #3c8bc6">{{case.memberid}}</span>
+          </div>
+
+      </span>
+
+
+        <span style="float: right;width: 75%;">
+              
+          <!-- <div class="editBox"> -->
+              <table cellspacing="10">
+                <tr>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/dob.png"/></span><br>
+                    <span class="contentHead">DATE OF BIRTH</span><br>
+                    <!-- <span class="contentResult" aria-valuenow="**/**/****">{{case.dateofbirth}}</span> -->
+                    <span class="contentResult" >**/**/{{case.dateofbirth.substring(6)}}</span>
+
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/start.png"/></span><br>
+                    <span class="contentHead">SERVICE START DATE</span><br>
+                    <span class="contentResult">{{case.startdate}}</span>
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/end.png"/></span><br>
+                    <span class="contentHead">SERVICE END DATE</span><br>
+                    <span class="contentResult">{{case.enddate}}</span>
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/procedure.png"/></span><br>
+                    <span class="contentHead">PROCDURE CODE</span><br>
+                    <span class="contentResult">{{case.procode}}</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/service.png"/></span><br>
+                    <span class="contentHead">SERVICE PROVIDER ID</span><br>
+                    <span class="contentResult">{{case.servicepvdid}}</span>
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/request.png"/></span><br>
+                    <span class="contentHead">REQUESTING PROVIDER ID</span><br>
+                    <span class="contentResult">{{case.requestpvdid}}</span>
+                  </td>
+                  <td>
+                    <span><img class="iconImg" src="../../assets/diagnostic.png"/></span><br>
+                    <span class="contentHead">DIAGNOSTIC CODE</span><br>
+                    <span class="contentResult">{{case.diagcode}}</span>
+                  </td>
+                  <td>
+                    <span class="contentHead">MMSSTATUS</span><br>
+                    <span class="contentResult">{{case.MMSStatus}}</span>
+                  </td>
+                </tr>
+
+              </table><br/>
+          <!-- </div> -->
+              <!-- <div style="float: left;">
+                <button [routerLink]="['/case-edit', case._id]" class="editBtn"><img src="../../assets/edit.png"/> &nbsp;Edit</button>
+                <button class="deleteBtn" (click)="deleteCase(case._id)"><img src="../../assets/delete.png"/> &nbsp;Delete</button>
+              </div>
+
+              <div style="float: right;">
+                  <button class="validateBtn">VALIDATE</button>
+                </div> -->
+          <!-- <mat-card-actions>
+              <a mat-raised-button color="primary" [routerLink]="['/case-edit', case._id]"><mat-icon>edit</mat-icon></a>
+              <a mat-raised-button color="warn" (click)="deleteCase(case._id)"><mat-icon>delete</mat-icon></a>
+            </mat-card-actions> -->
+              
+        </span>
+      </div>
+
+  </div>
+</div>  
+<!-- <div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/cases']"><mat-icon>list</mat-icon></a>
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title><h2>{{case._id.substring(20,24)}}</h2></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <dl>
+	  <dt>Member ID:</dt>
+      <dd>{{case.memberid}}</dd>
+      <dt>Member Name:</dt>
+      <dd>{{case.memname}}</dd>
+      <dt>Date of Birth:</dt>
+      <dd>{{case.dateofbirth}}</dd>
+      <dt>Servicing Provider ID:</dt>
+      <dd>{{case.servicepvdid}}</dd>
+	  <dt>Requesting Provider ID:</dt>
+      <dd>{{case.requestpvdid}}</dd>
+	  <dt>Diagnostic Code:</dt>
+      <dd>{{case.diagcode}}</dd>
+	  <dt>Procedure Code:</dt>
+      <dd>{{case.procode}}</dd>
+	  <dt>Service Start Date:</dt>
+      <dd>{{case.startdate}}</dd>
+	  <dt>Service End Date:</dt>
+      <dd>{{case.enddate}}</dd>
+      <dt>Update Date:</dt>
+      <dd>{{case.updated_date | date}}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button color="primary" [routerLink]="['/case-edit', case._id]"><mat-icon>edit</mat-icon></a>
+    <a mat-raised-button color="warn" (click)="deleteCase(case._id)"><mat-icon>delete</mat-icon></a>
+  </mat-card-actions>
+</mat-card> -->

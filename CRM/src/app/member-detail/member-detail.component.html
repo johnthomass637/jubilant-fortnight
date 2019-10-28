@@ -1,0 +1,775 @@
+<app-header></app-header>
+
+<main>
+<div style="margin-top: 4%">
+    <div className="tab-set-options">
+        <nav>
+          <div
+            class="nav nav-tabs tablistClr"
+            id="nav-tab"
+            role="tablist"
+           
+          >
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-home-tab"
+              data-toggle="tab"
+              [routerLink]="['/cases']"
+              href=""
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+              style="float: left;color: white"
+            >
+              Home
+            </a>
+
+            <a
+              class="nav-item nav-link active tab-set-option"
+              id="nav-memberId-tab"
+              data-toggle="tab"
+              href="#nav-memberId"
+              role="tab"
+              aria-controls="nav-memberId"
+              aria-selected="true"
+              style="float: left;color: white;text-transform: uppercase;"
+            >
+              A-{{memberId.substring(15,21)}}
+            </a>
+          </div>
+        </nav>
+      </div>
+    
+      <div class="content-set-container">
+          <div class="tab-content" id="nav-tabContent">
+
+            <div class="tab-pane fade show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                  
+                
+                    <!-- <div className="tab-set-options">
+                            <nav>
+                            <div
+                                class="nav nav-tabs"
+                                id="nav-tab"
+                                role="tablist"
+                            
+                            >
+                                <a
+                                class="nav-item nav-link tab-set-option"
+                                id="nav-dash-tab"
+                                data-toggle="tab"
+                                href="#nav-dash"
+                                role="tab"
+                                aria-controls="nav-dash"
+                                aria-selected="true"
+                                >
+                                Dashboard
+                                </a>
+                                <a
+                                class="nav-item nav-link tab-set-option"
+                                id="nav-manager-tab"
+                                data-toggle="tab"
+                                href="#nav-manager"
+                                role="tab"
+                                aria-controls="nav-manager"
+                                aria-selected="false"
+                                >
+                                Manager Tools
+                                </a>
+                                <a
+                                class="nav-item nav-link tab-set-option"
+                                id="nav-audit-tab"
+                                data-toggle="tab"
+                                href="#nav-audit"
+                                role="tab"
+                                aria-controls="nav-audit"
+                                aria-selected="false"
+                                >
+                                Audit
+                                </a>
+                                <a
+                                class="nav-item nav-link tab-set-option"
+                                id="nav-fax-tab"
+                                data-toggle="tab"
+                                href="#nav-fax"
+                                role="tab"
+                                aria-controls="nav-fax"
+                                aria-selected="false"
+                                >
+                                Fax History
+                                </a>
+                            </div>
+                            </nav>
+                        </div> -->
+    
+                        <div class="content-set-container">
+                            <div class="tab-content" id="nav-tabContent">
+    
+                                
+                                <div class="tab-pane fade show active" id="nav-dash" role="tabpanel" aria-labelledby="nav-dash-tab">
+
+                        
+                                </div>
+    
+                    <!-- //////////////////////////////////////////////// Manager Tools ///////////////////////////////////////////////// -->
+    
+                                <div class="tab-pane fade show" id="nav-manager" role="tabpanel" aria-labelledby="nav-manager-tab">
+                                    
+                                </div>
+    
+    
+                    <!-- //////////////////////////////////////////////// Audit ///////////////////////////////////////////////// -->
+    
+                                <div class="tab-pane fade show" id="nav-audit" role="tabpanel" aria-labelledby="nav-audit-tab">
+                                    
+                                    <!-- <label style="margin-left: 50px; color: #2983C8">Audit Search</label>
+                                    <table cellspacing="10">
+                                            <tr>
+                                                <td>
+                                                    <span class="contentHead">Search By</span><br>
+                                                    <span class="contentResult"><select>
+                                                            <option value="select">Search By Member ID</option>
+                                                          </select></span>
+                                                </td>
+                                                <td>
+                                                    <span class="contentHead">Search For</span><br>
+                                                    <span class="contentResult"><input type="text"/> </span>
+                                                </td>
+                                                <td>
+                                                    <span class="contentHead"></span><br>
+                                                    <span class="contentResult"><button class="searchButton">Search</button> </span>
+                                                </td>
+                                                <td>
+                                                    <span class="contentHead"></span><br>
+                                                    <span class="contentResult"><button class="clearButton">Clear</button> </span>
+                                                </td>
+                                                <td>
+    
+                                                </td>
+                                                <td>
+    
+                                                </td>
+                                            </tr><br>
+                                        </table>
+                                        <div style="margin-left: 50px">
+                                            <input type="checkbox"/>  Create Case
+                                            <input style="margin-left: 10px" type="checkbox"/> Case Transaction
+                                            <input style="margin-left: 10px" type="checkbox"/> Update Case
+                                            <input style="margin-left: 10px" type="checkbox"/> Non-Case Transaction
+                                            <input style="margin-left: 10px" type="checkbox"/> Interactions        
+                                        </div>                 -->
+                                </div>
+    
+                    <!-- //////////////////////////////////////////////// Fax ///////////////////////////////////////////////// -->
+    
+                                <div class="tab-pane fade show" id="nav-fax" role="tabpanel" aria-labelledby="nav-fax-tab">
+                                    
+                                </div>
+            
+    
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+            <div class="tab-pane fade show active" id="nav-memberId" role="tabpanel" aria-labelledby="nav-memberId-tab">
+
+                <div className="tab-set-options">
+                        <nav>
+                        <div
+                            class="nav nav-tabs"
+                            id="nav-tab"
+                            role="tablist"
+                        
+                        >
+                            <a
+                            class="nav-item nav-link active tab-set-option"
+                            id="nav-member-tab"
+                            data-toggle="tab"
+                            href="#nav-member"
+                            role="tab"
+                            aria-controls="nav-member"
+                            aria-selected="true"
+                            >
+                            Member
+                            </a>
+                            <a
+                            class="nav-item nav-link tab-set-option"
+                            id="nav-callerInfo-tab"
+                            data-toggle="tab"
+                            href="#nav-callerInfo"
+                            role="tab"
+                            aria-controls="nav-callerInfo"
+                            aria-selected="false"
+                            >
+                            Caller Info
+                            </a>
+                            <a
+                            class="nav-item nav-link tab-set-option"
+                            id="nav-Summary-tab"
+                            data-toggle="tab"
+                            href="#nav-Summary"
+                            role="tab"
+                            aria-controls="nav-Summary"
+                            aria-selected="false"
+                            >
+                            Summary
+                            </a>
+                            <a
+                            class="nav-item nav-link tab-set-option"
+                            id="nav-WrapUpSummary-tab"
+                            data-toggle="tab"
+                            href="#nav-WrapUpSummary"
+                            role="tab"
+                            aria-controls="nav-WrapUpSummary"
+                            aria-selected="false"
+                            >
+                            Wrap Up Summary
+                            </a>
+                        </div>
+                        </nav>
+                    </div>
+
+                    <div class="content-set-container">
+                        <div class="tab-content" id="nav-tabContent">
+
+                            
+                            <div class="tab-pane fade show active" id="nav-member" role="tabpanel" aria-labelledby="nav-member-tab">
+                                <div>
+                                <label style="margin-left: 50px; color: #2983C8">Member Search Method</label>
+                                    <table cellspacing="10">
+                                        <tr>
+                                            <td>
+                                            <span class="contentHead">Search Type</span><br>
+                                            <span class="contentResult">ID Search</span>
+                                            </td>
+                                            <td>
+                                            <span class="contentHead">HCID/Subscriber ID</span><br>
+                                            <span class="contentResult">{{case.memberid}} </span>
+                                            </td>
+                                            <td>
+
+                                            </td>
+                                            <td>
+
+                                            </td>
+                                            <td>
+
+                                            </td>
+                                            <td>
+
+                                            </td>
+                                        </tr><br>
+    
+                                    </table>
+                                       
+                                <hr>
+                                <label style="margin-left: 50px; color: #2983C8">Member Details</label>
+                                <table cellspacing="10">
+                                    <tr>
+                                        <td>
+                                        <span class="contentHead">Member First Name</span><br>
+                                        <span class="contentResult">{{case.memname}}</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">Member Last Name</span><br>
+                                        <span class="contentResult">Thomas </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">Date of Birth</span><br>
+                                        <span class="contentResult">{{case.dateofbirth}}</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">Physical Address 1</span><br>
+                                        <span class="contentResult"> 8910 Purdue Road</span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Physical Address Line 2</span><br>
+                                            <span class="contentResult">St 301 </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">Physical Recidency City</span><br>
+                                        <span class="contentResult">Indianapolis </span>
+                                        </td>
+                                    </tr><br>
+                    
+                                    <tr>
+                                        <td>
+                                            <span class="contentHead">Physical Recidency State</span><br>
+                                            <span class="contentResult"> IN </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">County</span><br>
+                                            <span class="contentResult">Hamilton </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Country</span><br>
+                                            <span class="contentResult"> USA</span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Zip Code</span><br>
+                                            <span class="contentResult"> 46268</span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Member Age</span><br>
+                                            <span class="contentResult">{{age}}</span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Gender</span><br>
+                                            <span class="contentResult">M </span>
+                                        </td>
+                                    </tr><br>
+
+                                    <tr>
+                                        <td>
+                                            <span class="contentHead">Member Suffix</span><br>
+                                            <span class="contentResult"> Mr</span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Prefix</span><br>
+                                            <span class="contentResult">YRP </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Group Name</span><br>
+                                            <span class="contentResult">SBC MJM Electric Cooperative </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Member ID</span><br>
+                                            <span class="contentResult">{{case.memberid}}</span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Relationship to Subscriber</span><br>
+                                            <span class="contentResult"> Self</span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Dependent Member Number </span><br>
+                                            <span class="contentResult"> </span>
+                                        </td>
+                                        </tr><br>
+
+                                        <tr>
+                                        <td>
+                                            <span class="contentHead">Group ID</span><br>
+                                            <span class="contentResult">0O244453 </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Subgroup ID</span><br>
+                                            <span class="contentResult">0O01 </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Phone</span><br>
+                                            <span class="contentResult">(656) 536-5656 </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Is phone in DNC list?</span><br>
+                                            <span class="contentResult">N </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">SSN</span><br>
+                                            <span class="contentResult">***-**.9292 </span>
+                                        </td>                        
+                                        </tr>
+                                    </table>
+                                    <hr>
+                            </div>
+
+                            <div>
+                                <label style="margin-left: 50px; color: #2983C8">Plan Details</label>
+                                <hr style="margin-left: 50px;">
+                                <table cellspacing="10">
+                                    <tr>
+                                        <td>
+                                        <span class="contentHead">Is member part of IHM/MHA/CCMU Account?</span><br>
+                                        <span class="contentResult"> N</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">Is member part of CCM Account?</span><br>
+                                        <span class="contentResult">N </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">ERISA</span><br>
+                                        <span class="contentResult"> Y</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">ACA</span><br>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Package ID</span><br>
+                                            <span class="contentResult"> </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">Product Combination Code</span><br>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                    </tr><br>
+                    
+                                    <tr>
+                                        <td>
+                                            <span class="contentHead">Medical UM Intake Region</span><br>
+                                            <span class="contentResult"> </span>
+                                        </td>
+                                    </tr><br>
+
+                                    </table>
+                                    <hr style="margin-left: 50px;">
+                            </div>
+
+                            <div>
+                                <label style="margin-left: 70px; color: #2983C8">Product Details</label>
+                                <table cellspacing="10" style="margin-left: 70px;">
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Type</th>
+                                        <th>Product Code</th>
+                                        <th>Status</th>
+                                        <th>HPCC Code</th>
+                                        <th>Network Tiers</th>
+                                        <th>Package Number</th>
+                                        <th>Effective</th>
+                                        <th>Termination</th>
+                                        <th>State</th>
+                                        <th>MSP</th>
+                                        </tr>
+                                    <tr>
+                                        <td>
+                                        <span class="contentResult"> Blue Access</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentResult">MED </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentResult"> AZAI0043</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentResult">Active </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentResult"> HPAU</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentResult">PR </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentResult">04/01/2019 </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentResult">12/31/2019 </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentResult">IN </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                    </tr><br>
+                    
+                                    <tr>
+                                        <td>
+                                            <span class="contentHead">Does Member have Well Priority Product?</span><br>
+                                            <span class="contentResult"> No</span>
+                                        </td>
+                                    </tr><br>
+
+                                    </table>
+                                    <hr style="margin-left: 50px;">
+                            </div>
+
+                            <div>
+                                <label style="margin-left: 50px; color: #2983C8">Funding Details</label>
+                                <table cellspacing="10">
+                                    <tr>
+                                    <td>
+                                        <span class="contentHead">Funding Type</span><br>
+                                        <span class="contentResult"> Fully Insured</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">Business Type</span><br>
+                                        <span class="contentResult"> Local </span>
+                                        </td>            
+                                        <td>
+                                        <span class="contentHead"></span><br>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead"></span><br>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead"></span><br>
+                                            <span class="contentResult"> </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead"></span><br>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                    </tr><br>
+                                    </table>
+                                    <hr>
+                            </div>
+
+                            <div>
+                                <label style="margin-left: 50px; color: #2983C8">Coverage Details</label>
+                                <table cellspacing="10">
+                                    <tr>
+                                        <td>
+                                        <span class="contentHead">Group Name</span><br>
+                                        <span class="contentResult"> SBC MJM Electric Cooperative</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">Group Number</span><br>
+                                        <span class="contentResult">00244453 </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">COB Indicator</span><br>
+                                        <span class="contentResult"> N</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">Excluded Group</span><br>
+                                        <span class="contentResult"> NO</span>
+                                        </td>
+                                        <td>
+                                            <span class="contentHead">Customer Service Number</span><br>
+                                            <span class="contentResult"> NonCDHP:80034524600</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">ITS Home Partic</span><br>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                    </tr><br>
+
+                                    </table>
+                                <hr>
+                            </div>
+
+                            <div>
+                                <label style="margin-left: 50px; color: #2983C8">Member Verification</label>
+                                <table cellspacing="10">
+                                    <tr>
+                                        <td>
+                                        <span class="contentHead"><input type="radio"/>HIPAA Verified-Name,DOB,Member ID </span><br>
+                                        <span class="contentHead"><input type="radio"/>HIPAA Verified-Others</span><br>
+                                        <span class="contentHead"><input type="radio"/>HIPAA Not Verified</span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead">HIPAA Notes</span><br>
+                                        <span class="contentResult"><textarea></textarea> </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead"></span><br>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                        <td>
+                                        <span class="contentHead"></span><br>
+                                        <span class="contentResult"> </span>
+                                        </td>
+                                        
+                                    </tr><br>
+
+                                    </table>
+                                <hr>
+                            </div>
+
+                            <div>
+                                <label style="margin-left: 50px; color: #2983C8">Member Networks</label>
+                                <table cellspacing="10" style="margin-left: 50px;width: 25%">
+                                    <tr>
+                                        <th>Network ID</th>
+                                        <th>Network Name</th>
+                                        </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="contentResult">5478546987852 </span>
+                                            </td>
+                                            <td>
+                                            <span class="contentResult">Blue Access Network </span>
+                                            </td>
+                                    </tr><br>
+
+                                    </table>
+                                <hr>
+                            </div>
+
+                            <div>
+                                <label style="margin-left: 50px; color: #2983C8">Source System Details</label><br>
+                                <div style="margin-left: 50px;">
+                                    <label>Member Source System</label><br>
+                                    <input type="text"/> <br><br>
+                                </div>  
+                                <hr>
+                            </div>
+
+                            <div>
+                                <label style="margin-left: 50px; color: #2983C8">CIRS</label><br>
+                                <div style="margin-left: 50px;">
+                                    <label>CIRS Indicator Flag</label><br>
+                                    <input type="text"/> <br><br>
+                                </div>  
+                                <hr>
+                            </div>
+                    
+                            </div>
+
+                <!-- //////////////////////////////////////////////// Caller Info ///////////////////////////////////////////////// -->
+
+                            <div class="tab-pane fade show" id="nav-callerInfo" role="tabpanel" aria-labelledby="nav-callerInfo-tab">
+                                <div>
+                                    <label class="infoLabel"style="margin-left: 20px;">Caller Information</label>
+                                    <hr style="margin-left: 30px;">
+                                    <label style="margin-left: 50px; color: #2983C8">Caller Details</label><br>
+                                    <table cellspacing="10">
+                                        <tr>
+                                            <td>
+                                            <span class="contentHead">Caller Name</span><br>
+                                            <span class="contentResult"> No Name</span>
+                                            </td>
+                                            <td>
+                                            <span class="contentHead">Phone Number</span><br>
+                                            <span class="contentResult">(463)897-1123 </span>
+                                            </td>
+                                            <td>
+                                            <span class="contentHead">Phone Extension</span><br>
+                                            <span class="contentResult"> </span>
+                                            </td>
+                                            
+                                        </tr><br>
+                        
+                                        <tr>
+                                            <td>
+                                                <span class="contentHead">Caller Type</span><br>
+                                                <span class="contentResult">Provider </span>
+                                            </td>
+                                            <td>
+                                                <span class="contentHead">Relationship to Patient</span><br>
+                                                <span class="contentResult"> Provider(Provider Rep)</span>
+                                            </td>
+                                            <td>
+                                                <span class="contentHead">Reason for Call</span><br>
+                                                <span class="contentResult"> Initial Authorization Request </span>
+                                            </td>
+                                        </tr><br>
+
+                                        <tr>
+                                            <td>
+                                                <span class="contentHead">TFN</span><br>
+                                                <span class="contentResult"> </span>
+                                            </td>                             
+                                        </tr><br>
+
+                                        </table>
+                                        <hr style="margin-left: 50px;">
+                                </div>
+                    
+                    
+                                <div>
+                                    <label style="margin-left: 50px; color: #2983C8">Provider Details</label>
+                                    <table cellspacing="10">
+                                        <tr>
+                                            <td>
+                                            <span class="contentHead">Provider Tax ID</span><br>
+                                            <span class="contentResult">{{case.servicepvdid}}</span>
+                                            </td>
+                                            <td>
+                                            <span class="contentHead">Provider Name</span><br>
+                                            <span class="contentResult"> Ryan</span>
+                                            </td>
+                                            <td>
+                                            <span class="contentHead">Provider NPI</span><br>
+                                            <span class="contentResult">1665428445 </span>
+                                            </td>               
+                                        </tr><br>   
+                    
+                                        </table>
+                                        <hr style="margin-left: 50px;">
+                                </div>
+                    
+                                <div>
+                                    <label style="margin-left: 50px; color: #2983C8">Member Details</label>
+                                    <table cellspacing="10">
+                                        <tr>
+                                        <td>
+                                            <span class="contentHead">Member ID</span><br>
+                                            <span class="contentResult"> {{case.memberid}}</span>
+                                            </td>
+                                            <td>
+                                            <span class="contentHead">Member Name</span><br>
+                                            <span class="contentResult">{{case.memname}} </span>
+                                            </td>            
+                                            <td>
+                                            <span class="contentHead"></span><br>
+                                            <span class="contentResult"> </span>
+                                            </td>                         
+                                        </tr><br>
+
+                                        </table>
+                                        <hr>
+                                </div>
+                            </div>
+
+
+                <!-- //////////////////////////////////////////////// Summary ///////////////////////////////////////////////// -->
+
+                            <div class="tab-pane fade show" id="nav-Summary" role="tabpanel" aria-labelledby="nav-Summary-tab">
+                                
+                            </div>
+
+                <!-- //////////////////////////////////////////////// Wrap Up Summary ///////////////////////////////////////////////// -->
+
+                            <div class="tab-pane fade show" id="nav-WrapUpSummary" role="tabpanel" aria-labelledby="nav-WrapUpSummary-tab">
+                                
+                            </div>
+        
+
+                        </div>
+                        </div>
+  
+            </div>
+          </div>
+        </div>
+
+</div>
+
+</main>
+
+
+
+
+
+
+
+
+
+
