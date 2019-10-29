@@ -19,7 +19,24 @@ router.get('/getCase/:id', function(req, res, next) {
 /* SAVE CASE */
 router.post('/saveCase/', function(req, res, next) {
 	console.log(req.body);
-	Case.create(req.body, function(err, post) {
+   let createdate= new Date.now()
+	const newCase= new 	Case({
+		"memberid":req.body.memberid,
+		 "memname":req.body.memname,
+		"dateofbirth":req.body.dateofbirth,          
+		"servicepvdid":req.body.servicepvdid,                                                                                                                          "requestpvdid":"$requestpvdid",
+		"diagcode":req.body.diagcode,
+		 "procode":req.body.procode,
+		"startdate":req.body.startdate,
+		"enddate":req.body.enddate,
+		 "status": req.body.status,
+		  "MMSStatus" : req.body.MMSStatus,
+		  "CallType" : req.body.CallType,
+		  "createddate":createdate
+		  
+		})
+		
+	Case.create(newCase, function(err, post) {
 		if (err) return next(err);
 		res.json(post);
 	});
