@@ -51,4 +51,16 @@ export class ApiService {
 		const url = `${apiUrl}/deleteCase/${id}`;
 		return this.http.delete(url, httpOptions).pipe(catchError(this.handleError));
 	}
+	getCountByMonth(): Observable<any> {
+		const url = `${apiUrl}/getCountByMonth`;
+		return this.http.get(url, httpOptions).pipe(map(this.extractData), catchError(this.handleError));
+	}
+	postTime(data): Observable<any> {
+		const url = `${apiUrl}/sendTime/`;
+		return this.http.post(url, data, httpOptions).pipe(catchError(this.handleError));
+	}
+	getTime(): Observable<any> {
+		const url = `${apiUrl}/getTime`;
+		return this.http.get(url, httpOptions).pipe(map(this.extractData), catchError(this.handleError));
+	}
 }

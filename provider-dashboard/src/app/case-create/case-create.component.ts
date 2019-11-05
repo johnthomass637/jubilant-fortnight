@@ -50,6 +50,7 @@ export class CaseCreateComponent implements OnInit {
 	}
 
 	onFormSubmit(form: NgForm) {
+		console.log(form);
 		this.api.postCase(form).subscribe(
 			(res) => {
 				let id = res['_id'];

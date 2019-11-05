@@ -62,7 +62,7 @@ hr {
 	padding: 12px;
 	margin-top: 30px;
 	background-color: white;
-	min-height: 320px;
+	min-height: 360px;
 	border-radius: 8px;
 	-webkit-box-shadow: 7px -1px 55px -36px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 7px -1px 55px -36px rgba(0, 0, 0, 0.75);
@@ -74,14 +74,19 @@ hr {
 	color: rgb(29, 28, 28);
 }
 
-.code-green{
-	background-color: green;
+.updateLabel {
+	font-size: 30px;
+	color: #338ef3;
+	padding: 40px;
 }
 
-.code-yellow{
-	background-color: yellow;
+.noupdateLabel {
+	font-size: 30px;
+	color: red;
+	padding: 40px;
 }
 
-.code-red{
-	background-color: red;
+table.mat-table {
+	width: 100%;
+	border-spacing: 0;
 }

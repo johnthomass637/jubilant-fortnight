@@ -9,11 +9,10 @@ var CaseSchema = new mongoose.Schema({
 	procode: String,
 	startdate: String,
 	enddate: String,
-	CallType: String,
 	status: String,
 	MMSStatus: String,
 	updated_date: { type: Date, default: Date.now },
-	createddate:String
+	createddate: Date
 });
 
 module.exports = mongoose.model('Case', CaseSchema);

@@ -4,7 +4,7 @@
 
 <main style="overflow: hidden;">
     <div style="margin-left: 15%;margin-top: 10%">
-        <!--<label style="margin-left: 1.5%;margin-bottom: 1%"> Realtime updates of  Case List</label>-->
+        <label style="margin-left: 1.5%;margin-bottom: 1%"> Realtime updates of  Case List</label>
         <div class="clearfix"></div>
         <div class="counter card blueCard">
             <div class="card-body">
@@ -50,39 +50,39 @@
 
         <div class="graph" style="float: left;">
             <div class="graphentity">
-                Case List Bar Chart Report
+                Case List Report
             </div>
             <div class="clearfix"></div><br>
             <canvas id="myChart" width="20" height="10" ></canvas>
         </div>
-		
+
         <div class="graph">
-            <div class="graphentity">
-                Case List Doughnut Report
+            <div class="graphentity" *ngIf="update">
+                New Updates
+            </div>
+            <div class="graphentity" *ngIf="!update">
+                  <label style="color: #338ef3">{{updateData}}</label>   New Updates
             </div>
             <div class="clearfix"></div><br>
-            <canvas id="myChart1" width="20" height="10"></canvas>
-			<!--<marquee behavior="scroll" direction="up" style="width=20px; height:250px;">
-			Congratulations! Case created for Mathews has been <mark class="code-green">Approved!</mark>
-			<br/>
-			<br/>			
-			Few priority cases are in <mark class="code-yellow">Pending</mark> status..
-			<br/>	
-			<br/>	
-			<br/>				
-			Please take action on the following:
-			<br/>	
-			<b>Aswin</b> created in January.
-			<br/>
-			<b>Albert</b> created in April.
-			<br/>	
-			<br/>
-			<br/>
-			Case created for Abraham has been <mark class="code-red">Denied</mark>. The member may have to resubmit the claim.
-			<br/>
-			<br/>			
-			Oops! Jack's case has been <mark class="code-red">Cancelled</mark>...	
-			</marquee>-->
+            <label *ngIf="update" class="noupdateLabel">No New Updates Found</label>
+            <!-- <label *ngIf="!update" class="updateLabel">{{updateData}} New Updates Found</label> -->
+            <div *ngIf="!update">
+                    <table mat-table #table [dataSource]="dataSource">
+                            <!--- Note that these columns can be defined in any order.
+                                  The actual rendered columns are set as a property on the row definition" -->
+    
+                          <!-- memname Column -->
+                            <ng-container matColumnDef="memname">
+                                <th mat-header-cell *matHeaderCellDef></th>
+                                <td mat-cell *matCellDef="let element"><label style="color: #338ef3">{{element.memname}} </label> &nbsp; have new updates</td>
+                            </ng-container>
+                                                       
+                            
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/case-details/', row._id]"></tr>
+    
+                          </table>
+            </div>
         </div>
     </div>
 </main>

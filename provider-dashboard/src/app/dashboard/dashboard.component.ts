@@ -13,7 +13,13 @@ export class DashboardComponent implements OnInit {
 	submitted: any;
 	rejected: any;
 	pending: any;
-	valueArray = [];
+	// valueArray = [];
+	update: boolean;
+	updateData: any;
+
+	displayedColumns = [ 'memname' ];
+	dataSource = new CaseDataSource(this.api);
+
 	constructor(private api: ApiService) {}
 
 	ngOnInit() {
@@ -21,31 +27,31 @@ export class DashboardComponent implements OnInit {
 		localStorage.removeItem('case');
 		localStorage.removeItem('caseCreate');
 
+		this.api.getTime().subscribe(
+			(res) => {
+				if (res == [] || res == null || res == '') {
+					this.update = true;
+				} else {
+					this.update = false;
+					this.updateData = res.length;
+				}
+				console.log(res);
+			},
+			(err) => {
+				console.log(err);
+			}
+		);
+
 		this.api.getCases().subscribe(
 			(res) => {
 				console.log(res);
 				this.total = res.length;
-				console.log(this.total);
 
 				let submittedArray = [];
 				let rejectedArray = [];
 				let pendingArray = [];
 
-				// for (let i = 0; i < res.length; i++) {
-				// 	console.log(res[i]);
-				// 	if (res[i].status == 'Submitted') {
-				// 		submittedArray.push(res[i]);
-				// 	}
-				// 	if (res[i].status == 'Pending') {
-				// 		pendingArray.push(res[i]);
-				// 	}
-				// 	if (res[i].status == 'Rejected') {
-				// 		rejectedArray.push(res[i]);
-				// 	}
-				// }
-
 				for (let i = 0; i < res.length; i++) {
-					console.log(res[i]);
 					if (res[i].MMSStatus == 'APPROVED') {
 						submittedArray.push(res[i]);
 					}
@@ -60,19 +66,70 @@ export class DashboardComponent implements OnInit {
 				this.submitted = submittedArray.length;
 				this.pending = pendingArray.length;
 				this.rejected = rejectedArray.length;
-				this.valueArray = [ this.total, this.submitted, this.rejected, this.pending ];
-				console.log(this.valueArray);
+				// this.valueArray = [ this.total, this.submitted, this.rejected, this.pending ];
+			},
+			(err) => {
+				console.log(err);
+			}
+		);
+
+		this.api.getCountByMonth().subscribe(
+			(res) => {
+				let arrData = [];
+				let arrLabel = [];
+
+				for (let i = 0; i < res.length; i++) {
+					if (res[i]._id == '1') {
+						arrLabel.push('January');
+					}
+					if (res[i]._id == '2') {
+						arrLabel.push('February');
+					}
+					if (res[i]._id == '3') {
+						arrLabel.push('March');
+					}
+					if (res[i]._id == '4') {
+						arrLabel.push('April');
+					}
+					if (res[i]._id == '5') {
+						arrLabel.push('May');
+					}
+					if (res[i]._id == '6') {
+						arrLabel.push('June');
+					}
+					if (res[i]._id == '7') {
+						arrLabel.push('July');
+					}
+					if (res[i]._id == '8') {
+						arrLabel.push('August');
+					}
+					if (res[i]._id == '9') {
+						arrLabel.push('September');
+					}
+					if (res[i]._id == '10') {
+						arrLabel.push('October');
+					}
+					if (res[i]._id == '11') {
+						arrLabel.push('November');
+					}
+					if (res[i]._id == '12') {
+						arrLabel.push('December');
+					}
+				}
+
+				for (let i = 0; i < res.length; i++) {
+					arrData.push(res[i].createddate);
+				}
 
 				var ctx = document.getElementById('myChart');
 				var myChart = new Chart(ctx, {
-					type: 'bar',
+					type: 'line',
 					data: {
-						labels: [ 'Total', 'Submitted', 'Rejected', 'Pending' ],
+						labels: arrLabel,
 						datasets: [
 							{
-								// label: '# of cases',
-								data: this.valueArray,
-								backgroundColor: [ '#338ef3', '#22cb9c', '#f05657', '#fba946' ],
+								data: arrData,
+								backgroundColor: [ 'rgb(110, 174, 234)' ],
 								borderColor: [ '#338ef3', '#22cb9c', '#f05657', '#fba946' ],
 								borderWidth: 1
 							}
@@ -94,42 +151,20 @@ export class DashboardComponent implements OnInit {
 						}
 					}
 				});
-
-				var ctx = document.getElementById('myChart1');
-				var myChart1 = new Chart(ctx, {
-					type: 'doughnut',
-					data: {
-						labels: [ 'Total', 'Submitted', 'Rejected', 'Pending' ],
-						datasets: [
-							{
-								// label: '# of cases',
-								data: this.valueArray,
-								backgroundColor: [ '#338ef3', '#22cb9c', '#f05657', '#fba946' ],
-								borderColor: [ '#338ef3', '#22cb9c', '#f05657', '#fba946' ],
-								borderWidth: 1
-							}
-						]
-					},
-					options: {
-						legend: {
-							display: false,
-							position: 'right'
-						}
-						// scales: {
-						// 	yAxes: [
-						// 		{
-						// 			ticks: {
-						// 				beginAtZero: true
-						// 			}
-						// 		}
-						// 	]
-						// }
-					}
-				});
 			},
 			(err) => {
 				console.log(err);
 			}
 		);
 	}
+}
+
+export class CaseDataSource extends DataSource<any> {
+	constructor(private api: ApiService) {
+		super();
+	}
+	connect() {
+		return this.api.getTime();
+	}
+	disconnect() {}
 }

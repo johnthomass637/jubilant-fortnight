@@ -30,8 +30,14 @@ import {
 	MatNativeDateModule
 } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
+	{
+		path: 'login',
+		component: LoginComponent,
+		data: { title: 'Case Login' }
+	},
 	{
 		path: 'dashboard',
 		component: DashboardComponent,
@@ -59,7 +65,7 @@ const appRoutes: Routes = [
 	},
 	{
 		path: '',
-		redirectTo: '/dashboard',
+		redirectTo: '/login',
 		pathMatch: 'full'
 	}
 ];
@@ -73,7 +79,8 @@ const appRoutes: Routes = [
 		CaseCreateComponent,
 		CaseEditComponent,
 		SidebarComponent,
-		DashboardComponent
+		DashboardComponent,
+		LoginComponent
 	],
 	imports: [
 		RouterModule.forRoot(appRoutes),

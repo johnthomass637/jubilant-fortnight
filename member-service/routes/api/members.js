@@ -41,11 +41,11 @@ router.get('/getAllmembers', (req, res) => {
     if (members) {
       res.status(200).json(members);
     } else {
-      res.status(404).json({ MSG: 'FALIURE' });
+      res.status(200).json({ MSG: 'FAILURE' });
     }
   });
 });
-
+  
 /*********************************************************************************************************/
 
 // @route   GET api/getbyId/:id
@@ -54,8 +54,6 @@ router.get('/getAllmembers', (req, res) => {
 
 router.get('/getbyId/:id', (req, res) => {
   const memberid = req.params.id;
-console.log('api/getbyId:id');
-console.log(memberid);
   Member.findOne({ memberid }).then(members => {
     if (members) {
       res.status(200).json({ MSG: 'SUCCESS' });
