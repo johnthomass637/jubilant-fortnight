@@ -1,0 +1,77 @@
+<script></script>
+
+<div class="maindiv">
+  <div class="leftdiv">
+    <h1></h1>
+    <div class="leftimg1">
+      <img class="imageClass" src="./assets/image/98-layers.png" />
+      <div>
+        <img class="imageClass1" src="./assets/image/43-layers.png" />
+        <div class="paragraphRight">
+          The Anthem Health Care Management Division has a singular dynamic
+          focus - to continually improve the system of health care delivery that
+          influences utilization and cost of services and measures performance.
+          Medical Management includes a collection of processes that help to
+          optimize the cost of quality care by effectively facilitating the
+          right care interventions to the right members, at the right time, and
+          in the right setting.
+        </div>
+      </div>
+      <div class="paragraphDown">
+        <p>
+          Utilization Management (UM) is a process that allows Anthem to manage
+          the cost of health care benefits by assessing its appropriateness
+          before it is provided, by using evidence-based criteria or
+          guidelines.<br />
+        </p>
+        <p>
+          Pre- authorization review which is done as part of UM requests by
+          providers/practitioners of benefits are reviewed by Anthem registered
+          nurses to determine if requests meet applicable benefit coverage and
+          Anthem medical policy criteria.<br />
+        </p>
+        <p>
+          While both Payer(Anthem) and Provider(Physicians) want to give good
+          care for the patients, the providers have incentive to prescribe
+          arguably redundant treatment to avoid future questioning and even
+          mal-practice suits. On the other hand, the payer would like to pay
+          only for the treatments that are necessary. This tradeoff is where the
+          UM (Utilization management) system comes in.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rightdiv" style="width:33%;height:500px;">
+    <div class="rightimg1">
+      <img class="image3" src="./assets/image/16-layers.png" />
+    </div>
+    <Chat-bot
+      class="chat-window"
+      [serviceid]="
+        '0AwytEuZlWShosO28uNtibIvw9onUxxN8lBLPpLuYIqBD5uu0j7QxZWkrpN0sJxD'
+      "
+      [msg]="msg"
+      [msgTemplate]="message"
+      [inputTemplate]="input"
+      (onMsgReceive)="onMsgReceive($event)"
+    >
+      <ng-template #window> </ng-template>
+    </Chat-bot>
+
+    <ng-template
+      #message
+      let-text="text"
+      let-object="object"
+      let-sendBy="sendBy"
+      let-options="options"
+    >
+      <chat-msg
+        [msg]="{ text: text, sendBy: sendBy, options: options }"
+      ></chat-msg>
+    </ng-template>
+    <ng-template #input>
+      <chat-input (msgToRoot)="msgFromChatInput($event)"></chat-input>
+    </ng-template>
+  </div>
+</div>

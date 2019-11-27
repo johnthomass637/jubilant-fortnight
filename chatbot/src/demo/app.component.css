@@ -1,0 +1,204 @@
+/* .chat-window {
+  display: flex;
+  min-height: 500px;
+  max-height: 500px;
+  width: 100%;
+  border: 10px solid;
+  border-color: #3496eb;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  height: 200px;
+  width: 100px;
+}
+
+.message {
+  display: flex;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+
+.maindiv{
+  width:100%;
+  height:300px;
+}
+
+.leftdiv {
+  position: absolute;
+  width:50%;
+  height:auto;
+  left: 0;
+  overflow-x: hidden;
+  z-index:   1;
+
+}
+.rightdiv {
+  position: absolute;
+  width: 42%;
+  padding-right: 39px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  height: auto;
+  right: 0;
+}
+
+.logo {
+padding-left:170px;
+height : 53px;
+width: 25px;
+}
+
+.leftimg2 {
+  padding: 10px;
+ 
+}
+.image1{
+padding: 10px;
+}
+
+.image2{
+  padding-left: 10px;
+  height: 133px;
+}
+.image3{
+  height: 53px;
+}
+
+
+
+
+ */
+
+ .maindiv{
+  width:100%;
+  height:300px;
+}
+
+.leftdiv {
+  position: absolute;
+  width:50%;
+  height:auto;
+  left: 0;
+  overflow-x: hidden;
+  z-index:   1;
+
+}
+/* .rightdiv {
+  position: absolute;
+  width:50%;
+  height:auto; 
+  right: 0;
+  padding-right:10%;
+  border-radius: 2%;
+  margin-right: 20px;
+
+} */
+
+
+
+.leftimg1 {
+
+  /* width: 10%; */
+  height: 10%;
+  padding-top: 05%;
+  /* padding-left:35%; */
+  padding-left: 10px;
+}
+
+.imageClass{
+  width: 35%;
+  float: left;
+  padding-top: 35px;
+  
+}
+
+.imageClass1{
+  width:65%;
+  float: right;
+  
+}
+
+.leftimg2 {
+  padding: 10px;
+  display: block;
+  margin: 0 auto; 
+}
+
+.paragraphRight{
+  padding-top: 120px;
+  padding-left: 40%;
+  text-align: justify;
+  color: #909090;
+  font-family: "SF Pro Display";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  /* Text style for "Lorem Ipsu" */
+  font-family: Helvetica;
+  font-weight: 400;
+}
+.paragraphDown{
+  padding-top: 30px;
+  padding-left: 30px;
+  text-align: justify;
+  color: #909090;
+  font-family: "SF Pro Display";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  /* Text style for "Lorem Ipsu" */
+  font-family: Helvetica;
+  font-weight: 400;
+}
+
+.rightimg1{
+  padding-left: 30px;
+
+}
+
+
+
+.rightdiv {
+  position: absolute;
+  width:50%;
+  height:auto; 
+  right: 0;
+  padding-right:10%;
+  border-radius: 2%;
+  margin-right: 20px;
+}
+
+.image3{
+   width: 35%;
+  float: left;
+  padding-top: 35px;
+  /* padding-left: 30px; */
+}
+
+.chat-window {
+  display: flex;
+  min-height: 450px;
+  max-height: 500px;
+  width: 100%;
+  border: 14px solid;
+  border-color: #2574bf;
+  border-radius: 20px;
+  width: 100%;
+}
+.container {
+  display: flex;
+  height: 200px;
+  width: 100px;
+}
+.message {
+  display: flex;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+}

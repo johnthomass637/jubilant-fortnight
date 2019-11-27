@@ -1,0 +1,29 @@
+.header {
+	height: 85px;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0%;
+	right: 0;
+	z-index: 999;
+	-webkit-box-shadow: 10px 7px 11px -5px rgba(115, 115, 115, 0.18);
+	-moz-box-shadow: 10px 7px 11px -5px rgba(115, 115, 115, 0.18);
+	box-shadow: 10px 7px 11px -5px rgba(115, 115, 115, 0.18);
+}
+
+.proName {
+	margin-left: 12%;
+	float: left;
+	margin-top: 10px;
+	height: 45px;
+	color: #0071ba;
+	font-family: Poppins;
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.logo {
+	float: right;
+	margin-top: 10px;
+	height: 45px;
+}

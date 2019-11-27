@@ -1,0 +1,92 @@
+body {
+	background-color: white !important;
+	/* font-family: 'Roboto', sans-serif; */
+}
+
+hr {
+	border-top: 1px solid rgb(214, 211, 211);
+}
+
+.counter {
+	width: 22%;
+	margin-left: 1.5%;
+	margin-right: 0.25%;
+	float: left;
+	cursor: pointer;
+	height: 135px;
+	border: none;
+	border-radius: 8px;
+	-webkit-box-shadow: 7px -1px 55px -36px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 7px -1px 55px -36px rgba(0, 0, 0, 0.75);
+	box-shadow: 7px -1px 55px -36px rgba(0, 0, 0, 0.75);
+}
+
+.counter .card-body {
+	padding: 3px;
+	position: relative;
+	text-align: center;
+	color: white;
+}
+
+.entity {
+	font-size: 22px;
+	color: white;
+}
+
+.count {
+	font-size: 28px;
+}
+
+.blueCard {
+	background-image: linear-gradient(-90deg, #338ef3, #3886ca);
+}
+
+.greenCard {
+	background-image: linear-gradient(-90deg, #22cb9c, #1eba8f);
+}
+
+.redCard {
+	background-image: linear-gradient(-90deg, #f05657, #fb6868);
+}
+
+.orangeCard {
+	background-image: linear-gradient(-90deg, #fba946, #fbca57);
+}
+
+.graph {
+	width: 45.7%;
+	margin-left: 1.5%;
+	margin-right: 0.25%;
+	float: left;
+	cursor: pointer;
+	padding: 12px;
+	margin-top: 30px;
+	background-color: white;
+	min-height: 360px;
+	border-radius: 8px;
+	-webkit-box-shadow: 7px -1px 55px -36px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 7px -1px 55px -36px rgba(0, 0, 0, 0.75);
+	box-shadow: 7px -1px 55px -36px rgba(0, 0, 0, 0.75);
+}
+
+.graphentity {
+	font-size: 16px;
+	color: rgb(29, 28, 28);
+}
+
+.updateLabel {
+	font-size: 30px;
+	color: #338ef3;
+	padding: 40px;
+}
+
+.noupdateLabel {
+	font-size: 30px;
+	color: red;
+	padding: 40px;
+}
+
+table.mat-table {
+	width: 100%;
+	border-spacing: 0;
+}

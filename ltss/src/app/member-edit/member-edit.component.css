@@ -1,0 +1,91 @@
+.example-form {
+	min-width: 150px;
+	max-width: 500px;
+	width: 100%;
+}
+.example-full-width {
+	width: 95%;
+	padding-left: 20px;
+	margin-top: 60px;
+}
+.example-full-width:nth-last-child() {
+	margin-bottom: 10px;
+}
+.button-row {
+	margin: 10px 0;
+}
+.example-container {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	max-width: 90%;
+	overflow: auto;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.buttonExport {
+	width: 221px;
+	background-color: white;
+	padding: 0.5em 0.5em 0.5em 1em;
+}
+
+.buttonExport.minimal {
+	border: 1px solid;
+	border-radius: 30px;
+	float: right;
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
+}
+
+[type="date"] {
+	background: #faf9fe url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50%
+		no-repeat;
+}
+[type="date"]::-webkit-inner-spin-button {
+	display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+	opacity: 0;
+}
+
+.textboxClass {
+	width: 100%;
+	border-radius: 34px;
+	border: 1px solid #dddfe0;
+	background: #faf9fe;
+	padding: 8px;
+	margin-top: 5px;
+}
+
+.textboxClassDate {
+	width: 30%;
+	border-radius: 34px;
+	border: 1px solid #dddfe0;
+	padding: 8px;
+	margin-top: 5px;
+}
+
+.errorClass {
+	color: red;
+	font-size: 12px;
+	margin-left: 6px;
+}
+
+.inputName {
+	padding: 5px;
+}
+
+.validateBtn {
+	margin-right: 40px;
+	background-color: #2571bb;
+	color: white;
+	padding: 2px 12px 2px 12px;
+	border-radius: 50px;
+	border: 0px;
+}

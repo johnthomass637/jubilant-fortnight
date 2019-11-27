@@ -1,0 +1,61 @@
+<div class="sideBar">
+
+    <div class="profile">
+        <img class="icon" src="../../assets/photo.png"/><br/>
+        <span>Anthem</span><br/>
+        <span>India</span>
+
+    </div>
+
+        <a *ngIf="isHome" [routerLinkActive]="['active']" routerLink="/cases">
+            <div class="sideDiv">
+                <img class="icon" src="../../assets/home-blue.png"/><br/>
+                <span class="navName" style="color: #2571bb">Home</span>
+            </div>
+        </a>
+
+        <a *ngIf="!isHome" routerLink="/cases" (click)="gotoHome()">
+            <div class="sideDiv">
+                <img class="icon" src="../../assets/home.png"/><br/>
+                <span class="navName">Home</span>
+            </div>
+        </a>
+    
+        <a *ngIf="isAddCase" [routerLinkActive]="['active']" routerLink="/case-create">
+            <div class="sideDiv">
+                <img class="icon" src="../../assets/add-case-blue.png"/><br/>
+                <span class="navName" style="color: #2571bb">Add Case</span>
+            </div>
+        </a>
+
+        <a *ngIf="!isAddCase" (click)="gotoAddCase()" routerLink="/case-create" >
+            <div class="sideDiv">
+                <img class="icon" src="../../assets/add-case.png"/><br/>
+                <span class="navName" >Add Case</span>
+            </div>
+        </a>
+
+    <a *ngIf="isCaseList" [routerLinkActive]="['active']" routerLink="/cases">
+        <div class="sideDiv">
+            <img class="icon" src="../../assets/case-list-blue.png"/><br/>
+            <span class="navName" style="color: #2571bb">Case List</span>
+        </div>
+    </a>
+
+    <a *ngIf="!isCaseList" (click)="gotoCaseList()" routerLink="/cases">
+        <div class="sideDiv">
+            <img class="icon" src="../../assets/case-list.png"/><br/>
+            <span class="navName">Case List</span>
+        </div>
+    </a>
+
+    <a routerLink="#">
+        <div class="sideDiv">
+            <img class="icon" src="../../assets/faq.png"/><br/>
+            <span class="navName">FAQ</span>
+        </div>
+    </a>
+    
+
+    
+  </div>

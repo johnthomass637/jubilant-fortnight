@@ -1,0 +1,40 @@
+<mat-card class="chat-window">
+  <ng-container  [ngTemplateOutlet]="template">
+    <div class="msgArea" #msgArea>
+      <ng-container
+        *ngFor="let msg of allMessages | async; let i = index"
+        [ngTemplateOutlet]="defaultMsgTemplate"
+        [ngTemplateOutletContext]="{
+                                       text: msg.content ,
+          sendBy: msg.sendBy,
+          options: msg.options
+                                    }"
+      >
+
+      </ng-container>
+    </div>
+    <div class="input-area">
+      <ng-container
+        class="input-area"
+        [ngTemplateOutlet]="inputTemplate"
+      ></ng-container>
+    </div>
+  </ng-container>
+</mat-card>
+
+<ng-template
+  #defaultMsgTemplate
+  let-text="text"
+  let-object="object"
+  let-sendBy="sendBy"
+  let-options="options"
+>
+  <chat-msg
+    [msg]="{ text: text, sendBy: sendBy, options: options }"
+    (msgToWindow)="msgFromChatMsgBtn($event)"
+  ></chat-msg>
+</ng-template>
+
+<ng-template #defaultInputTemplate>
+  <chat-input (change)="onChange($event.target)"></chat-input>
+</ng-template>

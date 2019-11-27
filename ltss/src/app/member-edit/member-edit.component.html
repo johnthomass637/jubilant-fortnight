@@ -1,0 +1,364 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div style="margin-left: 19%;margin-top: 5%;padding-right: 23px;">
+
+    <div class="example-container mat-elevation-z8">
+    
+        <div >
+            <span style="color: #2872B3"> Edit New Cases</span>
+            <div class="sortDiv" style="float: right;">
+              <button class="minimal buttonExport" style="color: #2872B3"> Export in Excel </button>       
+            </div>
+            <div class="clearfix"></div>
+            <hr>
+          </div>
+  
+
+<form [formGroup]="memberForm" (ngSubmit)="onFormSubmit(memberForm.value)">
+
+    <div style="width: 100%;float: left;">
+        <span style="float: left; width: 100%;padding-left: 12px;">
+              <div style="margin-top: 15px">
+                <span class="inputName">Member ID</span><br>
+                <input matInput  formControlName="memberid" required class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('memberid').valid && memberForm.get('memberid').touched" class="errorClass">Please enter Member ID</span>
+              </div>
+  
+              <div style="margin-top: 15px">
+                <span class="inputName">Member First Name</span><br>
+                <input matInput formControlName="memfirstname" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('memfirstname').valid && memberForm.get('memfirstname').touched" class="errorClass">Please enter the First Name of the Member</span>
+              </div>
+  
+              <div style="margin-top: 15px">
+                <span class="inputName">Member Last Name</span><br>
+                <input matInput formControlName="memlastname" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('memlastname').valid && memberForm.get('memlastname').touched" class="errorClass">Please enter the Last Name of the Member</span>
+              </div>
+              
+  
+              <div style="margin-top: 15px">  
+                <span class="inputName">Assessment Type</span>  <br>  
+                <input matInput  formControlName="assesstype" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('assesstype').valid && memberForm.get('assesstype').touched" class="errorClass">Assessment Type</span>
+              </div>
+  
+              <div style="margin-top: 15px">
+                <span class="inputName">Status</span><br>
+                <input matInput formControlName="status" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('status').valid && memberForm.get('status').touched" class="errorClass">Status</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Contact Date</span><br>
+                <input matInput type="date" formControlName="cntdate" class="textboxClassDate"><br>
+                <span *ngIf="!memberForm.get('cntdate').valid && memberForm.get('cntdate').touched" class="errorClass">Contact Date</span>
+              </div>
+  
+              <div style="margin-top: 15px">
+                <span class="inputName">Location of Visit</span><br>
+                <input matInput formControlName="locofvis" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('locofvis').valid && memberForm.get('locofvis').touched" class="errorClass">Enter the Location of Visit</span>
+              </div>
+  
+              <div style="margin-top: 15px">
+                <span class="inputName">Contact person or entity</span><br>
+                <input matInput  formControlName="cntentity" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('cntentity').valid && memberForm.get('cntentity').touched" class="errorClass">Contact person or entity</span>
+              </div>
+  
+              <div style="margin-top: 15px">
+                <span class="inputName">Contact Name</span><br>
+                <input matInput  formControlName="cntname" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('cntname').valid && memberForm.get('cntname').touched" class="errorClass">Contact Name</span>
+              </div>
+    
+
+              <div style="margin-top: 15px">
+                  <span class="inputName">Did this contact include the interdisciplinary team members chosen by the member</span><br>
+                  <input matInput formControlName="intdispmem" class="textboxClass"><br>
+                  <span *ngIf="!memberForm.get('intdispmem').valid && memberForm.get('intdispmem').touched" class="errorClass">Did this contact include the interdisciplinary team members chosen by the member</span>
+                </div>
+    
+                <div style="margin-top: 15px">
+                  <span class="inputName">Is the member experiencing eligibility issue?</span><br>
+                  <input matInput  formControlName="elgbleissue" class="textboxClass"><br>
+                  <span *ngIf="!memberForm.get('elgbleissue').valid && memberForm.get('elgbleissue').touched" class="errorClass">Is the member experiencing eligibility issue</span>
+                </div>
+    
+                <div style="margin-top: 15px">
+                  <span class="inputName">Are the member service correctly authorized</span><br>
+                  <input matInput   formControlName="memserve" class="textboxClass"><br>
+                  <span *ngIf="!memberForm.get('memserve').valid && memberForm.get('memserve').touched" class="errorClass">Are the member service correctly authorized</span>
+                </div>
+                
+                <div style="margin-top: 15px">
+                  <span class="inputName">If no, what steps have been taken to cover the service gaps</span><br>
+                  <input matInput formControlName="servegap" class="textboxClass"><br>
+                  <span *ngIf="!memberForm.get('servegap').valid && memberForm.get('servegap').touched" class="errorClass">If no, what steps have been taken to cover the service gaps?</span>
+                </div>
+    
+                <div style="margin-top: 15px">
+                  <span class="inputName">Observation of the member’s physical condition i.e, skin, weight, visible injuries etc</span><br>
+                  <input matInput  formControlName="phycond" class="textboxClass"><br>
+                  <span *ngIf="!memberForm.get('phycond').valid && memberForm.get('phycond').touched" class="errorClass">Observation of the member’s physical condition i.e, skin, weight, visible injuries etc</span>
+                </div>
+    
+                <div style="margin-top: 15px">
+                  <span class="inputName">Were any actions required to address the member’s physical changes</span><br>
+                  <input matInput   formControlName="phychange" class="textboxClass"><br>
+                  <span *ngIf="!memberForm.get('phychange').valid && memberForm.get('phychange').touched" class="errorClass">Were any actions required to address the member’s physical changes</span>
+                </div>
+
+                <div style="margin-top: 15px">
+                <span class="inputName">Any upcoming medical Appointments</span><br>
+                <input matInput   formControlName="medappnt" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('medappnt').valid && memberForm.get('medappnt').touched" class="errorClass">Any upcoming medical Appointments</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Observation of the member’s physical environment</span><br>
+                <input matInput   formControlName="phyenv" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('phyenv').valid && memberForm.get('phyenv').touched" class="errorClass">Observation of the member’s physical environment</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Observation of the member’s mood and emotional well-being</span><br>
+                <input matInput   formControlName="moodemo" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('moodemo').valid && memberForm.get('moodemo').touched" class="errorClass">Observation of the member’s mood and emotional well-being</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Any recent falls</span><br>
+                <input matInput   formControlName="recfall" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('recfall').valid && memberForm.get('recfall').touched" class="errorClass">Any recent falls</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Is member satisfied with current service and care</span><br>
+                <input matInput   formControlName="servcare" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('servcare').valid && memberForm.get('servcare').touched" class="errorClass">Is member satisfied with current service and care</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Were any new risks identified for the member</span><br>
+                <input matInput   formControlName="memrisk" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('memrisk').valid && memberForm.get('memrisk').touched" class="errorClass">Were any new risks identified for the member</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Restrictive intervention was applied to the member that was not included on the plan of care</span><br>
+                <input matInput   formControlName="restintrv" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('restintrv').valid && memberForm.get('restintrv').touched" class="errorClass">Restrictive intervention was applied to the member that was not included on the plan of care</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Did the meeting result in a change in the plan of care</span><br>
+                <input matInput   formControlName="memresult" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('memresult').valid && memberForm.get('memresult').touched" class="errorClass">Did the meeting result in a change in the plan of care</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Other topic discussed</span><br>
+                <input matInput   formControlName="othtopic" class="textboxClass"><br>
+                <span *ngIf="!memberForm.get('othtopic').valid && memberForm.get('othtopic').touched" class="errorClass">Other topic discussed</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                  <span class="inputName">Completed by</span><br>
+                  <input matInput   formControlName="nursename" class="textboxClass"><br>
+                  <span *ngIf="!memberForm.get('nursename').valid && memberForm.get('nursename').touched" class="errorClass">Completed by</span>
+                </div>
+
+              <div class="button-row" >
+                <button type="submit" class="validateBtn" [disabled]="!memberForm.valid" mat-raised-button class="validateBtn">SAVE</button>
+              </div>
+        </span>
+      </div>
+
+      
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Member ID" formControlName="memberid"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('memberid').valid && memberForm.get('memberid').touched">Please enter Member ID</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Member First Name" formControlName="memfirstname"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('memfirstname').valid && memberForm.get('memfirstname').touched">Please enter the First Name of the Member</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Member Last Name" formControlName="memlastname"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('memlastname').valid && memberForm.get('memlastname').touched">Please enter the Last Name of the Member</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Assessment Type" formControlName="assesstype"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('assesstype').valid && memberForm.get('assesstype').touched">Assessment Type</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Status" formControlName="status"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('status').valid && memberForm.get('status').touched">Status</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Contact Date" formControlName="cntdate"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('cntdate').valid && memberForm.get('cntdate').touched">Contact Date</span>
+    </mat-error>
+  </mat-form-field> -->
+  <!-- <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Contact Date" formControlName="cntdate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> -->
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Location of Visit" formControlName="locofvis"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('locofvis').valid && memberForm.get('locofvis').touched">Enter the Location of Visit</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Contact person or entity" formControlName="cntentity"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('cntentity').valid && memberForm.get('cntentity').touched">Contact person or entity</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Contact Name" formControlName="cntname"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('cntname').valid && memberForm.get('cntname').touched">Contact Name</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Did this contact include the interdisciplinary team members chosen by the member" formControlName="intdispmem"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('intdispmem').valid && memberForm.get('intdispmem').touched">Did this contact include the interdisciplinary team members chosen by the member</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Is the member experiencing eligibility issue?" formControlName="elgbleissue"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('elgbleissue').valid && memberForm.get('elgbleissue').touched">Is the member experiencing eligibility issue</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Are the member service correctly authorized" formControlName="memserve"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('memserve').valid && memberForm.get('memserve').touched">Are the member service correctly authorized</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="If no, what steps have been taken to cover the service gaps" formControlName="servegap"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('servegap').valid && memberForm.get('servegap').touched">If no, what steps have been taken to cover the service gaps?</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Observation of the member’s physical condition i.e, skin, weight, visible injuries etc" formControlName="phycond"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('phycond').valid && memberForm.get('phycond').touched">Observation of the member’s physical condition i.e, skin, weight, visible injuries etc</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Were any actions required to address the member’s physical changes" formControlName="phychange"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('phychange').valid && memberForm.get('phychange').touched">Were any actions required to address the member’s physical changes</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Any upcoming medical Appointments" formControlName="medappnt"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('medappnt').valid && memberForm.get('medappnt').touched">Any upcoming medical Appointments</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Observation of the member’s physical environment" formControlName="phyenv"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('phyenv').valid && memberForm.get('phyenv').touched">Observation of the member’s physical environment</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Observation of the member’s mood and emotional well-being" formControlName="moodemo"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('moodemo').valid && memberForm.get('moodemo').touched">Observation of the member’s mood and emotional well-being</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Any recent falls" formControlName="recfall"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('recfall').valid && memberForm.get('recfall').touched">Any recent falls</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Is member satisfied with current service and care" formControlName="servcare"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('servcare').valid && memberForm.get('servcare').touched">Is member satisfied with current service and care</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Were any new risks identified for the member" formControlName="memrisk"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('memrisk').valid && memberForm.get('memrisk').touched">Were any new risks identified for the member</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Restrictive intervention was applied to the member that was not included on the plan of care" formControlName="restintrv"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('restintrv').valid && memberForm.get('restintrv').touched">Restrictive intervention was applied to the member that was not included on the plan of care</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Did the meeting result in a change in the plan of care" formControlName="memresult"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('memresult').valid && memberForm.get('memresult').touched">Did the meeting result in a change in the plan of care</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Other topic discussed" formControlName="othtopic"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('othtopic').valid && memberForm.get('othtopic').touched">Other topic discussed</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Completed by" formControlName="nursename"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!memberForm.get('nursename').valid && memberForm.get('nursename').touched">Completed by</span>
+    </mat-error>
+	</mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!memberForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div> -->
+</form>

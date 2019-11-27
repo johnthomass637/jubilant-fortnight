@@ -1,0 +1,38 @@
+.full-width {
+  width: 100%;
+  color: #3f51c0;
+  position: relative;
+}
+
+.sendIcon {
+  height: 22px;
+  position: absolute;
+  right: 5px;
+  bottom: 32px;
+}
+
+.available {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.unavailable {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.startRecIcon {
+  height: 35px;
+  position: absolute;
+  right: 38px;
+  bottom: 25px;
+  cursor: pointer;
+}
+
+.stopRecIcon {
+  height: 35px;
+  position: absolute;
+  right: 38px;
+  bottom: 25px;
+  cursor: pointer;
+}

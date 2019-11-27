@@ -1,0 +1,190 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<main>
+<div style="margin-left: 15%;margin-top: 8%">
+    <div className="tab-set-options">
+        <nav>
+          <div
+            class="nav nav-tabs"
+            id="nav-tab"
+            role="tablist"
+           
+          >
+            <a
+              class="nav-item nav-link active tab-set-option"
+              id="nav-caseList-tab"
+              data-toggle="tab"
+              href="#nav-caseList"
+              role="tab"
+              aria-controls="nav-caseList"
+              aria-selected="true"
+            >
+              Case List
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-submittedCases-tab"
+              data-toggle="tab"
+              href="#nav-submittedCases"
+              role="tab"
+              aria-controls="nav-submittedCases"
+              aria-selected="false"
+            >
+              Submitted Cases
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-rejectedCases-tab"
+              data-toggle="tab"
+              href="#nav-rejectedCases"
+              role="tab"
+              aria-controls="nav-rejectedCases"
+              aria-selected="false"
+            >
+              Rejected Cases
+            </a>
+            <a
+            class="nav-item nav-link tab-set-option"
+            id="nav-pendingCases-tab"
+            data-toggle="tab"
+            href="#nav-pendingCases"
+            role="tab"
+            aria-controls="nav-pendingCases"
+            aria-selected="false"
+          >
+            Pending Cases
+          </a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="content-set-container">
+          <div class="tab-content" id="nav-tabContent">
+
+            <div class="tab-pane fade show active" id="nav-caseList" role="tabpanel" aria-labelledby="nav-caseList-tab">
+              <div class="container">
+                  <div class="button-row">
+                      <!-- <a mat-raised-button color="primary" [routerLink]="['/case-create']"><mat-icon>add</mat-icon></a> -->
+                    </div>
+                    <div class="example-container mat-elevation-z8">
+                      <div >
+                          <input style="float: left;"
+                          class="searchbox"
+                          type="text"
+                          placeholder="Search Name..."
+                          
+                        />
+
+                        <div class="sortDiv" style="float: right;">
+                            <select class="minimal">
+                              <option> Last 30 Days</option>
+                              <!-- <option> Last Week</option>
+                              <option> Last 1 month</option>
+                              <option> Last 6 months</option> -->
+                            </select>
+                          </div>
+                      </div>
+                          
+                      <table mat-table #table [dataSource]="dataSource">
+                        <!--- Note that these columns can be defined in any order.
+                              The actual rendered columns are set as a property on the row definition" -->
+
+                      <!-- memname Column -->
+                        <ng-container matColumnDef="memname">
+                            <th mat-header-cell *matHeaderCellDef> Name of the Patient</th>
+                            <td mat-cell *matCellDef="let element"> {{element.memname}} </td>
+                        </ng-container>
+                        <div class="vl"></div>
+                      <!-- casenum Column -->
+                        <ng-container matColumnDef="_id">
+                          <th mat-header-cell *matHeaderCellDef> Case Number </th>
+                          <td mat-cell *matCellDef="let element" class="statusClass"> ******{{element._id.substring(20,24)}} </td>
+                        </ng-container>
+                      <!-- memberid Column -->
+                        <ng-container matColumnDef="memberid">
+                          <th mat-header-cell *matHeaderCellDef> Member ID </th>
+                          <td mat-cell *matCellDef="let element" class="memberid-col"> {{element.memberid}} </td>
+                        </ng-container>
+                        
+                      <!-- dob Column -->
+                        <ng-container matColumnDef="dob">
+                          <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+                          <!-- <td mat-cell *matCellDef="let element"> {{element.dateofbirth}} </td> -->
+                          <td mat-cell *matCellDef="let element"> **/**/{{element.dateofbirth.substring(6)}} </td>
+                          <!-- <td mat-cell *matCellDef="let element">{{element.DOBARR}} </td> -->
+                        </ng-container>
+
+                      <!-- status Column -->
+                      <!-- <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let element" [ngClass]="{ green: element.status == Submitted}"
+                          >
+                            <span class="statusClass">{{element.status}} </span> 
+                        </td>
+                      </ng-container>  -->
+                      
+
+                     <!-- MMSStatus Column -->
+                      <ng-container matColumnDef="MMSStatus">
+                        <th mat-header-cell *matHeaderCellDef> Case Status </th>
+                        <td mat-cell *matCellDef="let element" >
+                          <!-- <span class="statusClass1">{{element.MMSStatus}} </span> -->
+                            <span *ngIf="element.MMSStatus == 'PENDING'" [ngClass] = "{statusClass1: element.MMSStatus == 'PENDING'}">
+                              PENDING
+                            </span>
+                            <span *ngIf="element.MMSStatus == 'APPROVED'" [ngClass] = "{statusClass2: element.MMSStatus == 'APPROVED'}">
+                              APPROVED
+                            </span>
+                            <span *ngIf="element.MMSStatus == 'CANCELLED'" [ngClass] = "{statusClass3: element.MMSStatus == 'CANCELLED'}">
+                              CANCELLED
+                            </span>
+                            <span *ngIf="element.MMSStatus == 'DENIED'" [ngClass] = "{statusClass4: element.MMSStatus == 'DENIED'}">
+                              DENIED
+                            </span>
+                        </td>
+                      </ng-container> 
+                      
+                      <!-- viewDetails Column -->
+                      <ng-container matColumnDef="view">
+                        <th mat-header-cell *matHeaderCellDef>  </th>
+                        <td mat-cell *matCellDef="let element" class="" [routerLink]="['/case-details/', element._id]"> <span class="viewDetailClass">View Details </span>  </td>
+                      </ng-container>  
+                        
+                        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/case-details/', row._id]"></tr> -->
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+
+                      </table>
+                    </div>
+              </div>
+            </div>
+
+
+            <div class="tab-pane fade show" id="nav-submittedCases" role="tabpanel" aria-labelledby="nav-submittedCases-tab">
+              <div class="container" >
+                
+              </div>
+            </div>
+
+
+            <div class="tab-pane fade show" id="nav-rejectedCases" role="tabpanel" aria-labelledby="nav-rejectedCases-tab">
+              <div class="container" >
+                
+              </div>
+            </div>
+
+
+            <div class="tab-pane fade show" id="nav-pendingCases" role="tabpanel" aria-labelledby="nav-pendingCases-tab">
+                <div class="container" >
+                  
+                </div>
+              </div>
+
+          </div>
+        </div>
+
+</div>
+
+</main>

@@ -1,0 +1,87 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div style="margin-left: 15%;margin-top: 8%">
+
+  <div class="example-container mat-elevation-z8">
+    <div >
+      <span style="color: #2872B3"> Add New Cases</span>
+      <div class="sortDiv" style="float: right;">
+        <button class="minimal buttonExport" style="color: #2872B3"> Export in Excel </button>       
+      </div>
+      <div class="clearfix"></div>
+      <hr>
+    </div>
+
+
+  <form [formGroup]="caseForm" (ngSubmit)="onFormSubmit(caseForm.value)">
+
+      <div style="width: 100%;float: left;">
+        <span style="float: left; width: 45%;padding-left: 12px;">
+              <div style="margin-top: 15px">
+                <span class="inputName">Member ID</span>
+                <input matInput  formControlName="memberid" required class="textboxClass">
+                <span *ngIf="!caseForm.get('memberid').valid && caseForm.get('memberid').touched" class="errorClass">Please enter Member ID</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Member Name</span>
+                <input matInput placeholder="Member Name" formControlName="memname" class="textboxClass">
+                <span *ngIf="!caseForm.get('memname').valid && caseForm.get('memname').touched" class="errorClass">Please enter the Name of the Member</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Date of Birth</span>
+                <input matInput type="date"formControlName="dateofbirth" class="textboxClass">
+                <span *ngIf="!caseForm.get('dateofbirth').valid && caseForm.get('dateofbirth').touched" class="errorClass">Please enter Date of Birth</span>
+              </div>
+
+              <div style="margin-top: 15px">  
+                <span class="inputName">Servicing Provider ID</span>    
+                <input matInput  formControlName="servicepvdid" class="textboxClass">
+                <span *ngIf="!caseForm.get('servicepvdid').valid && caseForm.get('servicepvdid').touched" class="errorClass">Please enter the Servicing Provider ID</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Requesting Provider ID</span>
+                <input matInput formControlName="requestpvdid" class="textboxClass">
+                <span *ngIf="!caseForm.get('requestpvdid').valid && caseForm.get('requestpvdid').touched" class="errorClass">Please enter the Requesting Provider ID</span>
+              </div>
+
+              </span>
+        <span style="float: right;width: 45%;padding-right: 12px;">
+              
+              <div style="margin-top: 15px">
+                <span class="inputName">Diagnostic Code</span>
+                <input matInput formControlName="diagcode" class="textboxClass">
+                <span *ngIf="!caseForm.get('diagcode').valid && caseForm.get('diagcode').touched" class="errorClass">Please enter the Diagnostic Code</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Procedure Code</span>
+                <input matInput formControlName="procode" class="textboxClass">
+                <span *ngIf="!caseForm.get('procode').valid && caseForm.get('procode').touched" class="errorClass">Please enter the Procedure Code</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Service Start Date</span>
+                <input matInput type="date" formControlName="startdate" class="textboxClass">
+                <span *ngIf="!caseForm.get('startdate').valid && caseForm.get('startdate').touched" class="errorClass">Please enter the date of start of service</span>
+              </div>
+
+              <div style="margin-top: 15px">
+                <span class="inputName">Service End Date</span>
+                <input matInput type="date"  formControlName="enddate" class="textboxClass">
+                <span *ngIf="!caseForm.get('enddate').valid && caseForm.get('enddate').touched" class="errorClass">Please enter the service end date</span>
+              </div>
+    
+              <div class="button-row" >
+                <button type="submit" [disabled]="!caseForm.valid" mat-raised-button class="validateBtn">SAVE</button>
+              </div>
+        </span>
+      </div>
+
+  </form>
+
+  </div>
+</div>  

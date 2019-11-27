@@ -1,0 +1,319 @@
+<app-header></app-header>
+
+<main>
+<div style="margin-top: 4%">
+    <div className="tab-set-options">
+        <nav>
+          <div
+            class="nav nav-tabs"
+            id="nav-tab"
+            role="tablist"
+           
+          >
+            <a
+              class="nav-item nav-link active tab-set-option"
+              id="nav-caseList-tab"
+              data-toggle="tab"
+              href="#nav-caseList"
+              role="tab"
+              aria-controls="nav-caseList"
+              aria-selected="true"
+              style="float: left;"
+            >
+              Dashboard
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-manager-tab"
+              data-toggle="tab"
+              href="#nav-manager"
+              role="tab"
+              aria-controls="nav-manager"
+              aria-selected="false"
+              >
+              Manager Tools
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-audit-tab"
+              data-toggle="tab"
+              href="#nav-audit"
+              role="tab"
+              aria-controls="nav-audit"
+              aria-selected="false"
+              >
+              Audit Search
+            </a>
+            <a
+              class="nav-item nav-link tab-set-option"
+              id="nav-fax-tab"
+              data-toggle="tab"
+              href="#nav-fax"
+              role="tab"
+              aria-controls="nav-fax"
+              aria-selected="false"
+              >
+              Fax History
+            </a>            
+            
+          </div>
+        </nav>
+      </div>
+      <a style="float: right;margin-right: 10px"> 
+        <input type="checkbox" checked />ChatBot
+        <input type="checkbox"  />Phone Call
+      </a>
+
+      <div class="content-set-container">
+          <div class="tab-content" id="nav-tabContent" >
+            <br>
+            <div class="tab-pane fade show active" style="border: 1px solid #EEEEEE" id="nav-caseList" role="tabpanel" aria-labelledby="nav-caseList-tab">
+             
+                <div className="tab-set-options" >
+                    <nav>
+                      <div
+                        class="nav nav-tabs"
+                        id="nav-tab"
+                        role="tablist"
+                       
+                      >
+                        <a
+                          class="nav-item nav-link tab-set-option insideLink"
+                          id="nav-workList-tab"
+                          data-toggle="tab"
+
+                          role="tab"
+                          aria-controls="nav-workList"
+                          aria-selected="true"
+                        >
+                          Work List
+                        </a>
+                        <a
+                          class="nav-item nav-link active tab-set-option"
+                          id="nav-recentWork-tab"
+                          data-toggle="tab"
+                          href="#nav-recentWork"
+                          role="tab"
+                          aria-controls="nav-recentWork"
+                          aria-selected="false"
+                        >
+                         Recent Work
+                        </a>
+                        <a
+                          class="nav-item nav-link tab-set-option"
+                          id="nav-workBasket-tab"
+                          data-toggle="tab"
+                         
+                          role="tab"
+                          aria-controls="nav-workBasket"
+                          aria-selected="false"
+                        >
+                          Work Basket
+                        </a>
+                      </div>
+                    </nav>
+                  </div>
+
+                  <div class="content-set-container" style="padding-top: 2%;">
+                      <div class="tab-content" id="nav-tabContent">
+            
+                        <div class="tab-pane fade show" style="	padding-left: 20px;" id="nav-workList" role="tabpanel" aria-labelledby="nav-workList-tab">
+                          <div class="container">
+                                <div class="example-container">
+                                      
+                                  <table mat-table #table [dataSource]="dataSource">
+            
+            
+                                    <ng-container matColumnDef="memname">
+                                        <th mat-header-cell *matHeaderCellDef> Name of the Patient</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.memname}} </td>
+                                    </ng-container>
+                                    <div class="vl"></div>
+                                    <ng-container matColumnDef="_id">
+                                      <th mat-header-cell *matHeaderCellDef> Case Number </th>
+                                      <td mat-cell *matCellDef="let element" class="statusClass" > {{element._id.substring(15,24)}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="memberid">
+                                      <th mat-header-cell *matHeaderCellDef> Member ID </th>
+                                      <td mat-cell *matCellDef="let element" class="memberid-col"> {{element.memberid}} </td>
+                                    </ng-container>
+                                    
+                                    <ng-container matColumnDef="dob">
+                                      <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+                                      <td mat-cell *matCellDef="let element"> {{element.dateofbirth}} </td>
+                                    </ng-container>
+            
+                                  <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let element">
+                                    <span *ngIf="element.status == 'Resolved-Completed'" [ngClass] = "{statusClass: element.status == 'Resolved-Completed'}">
+                                      Resolved-Completed
+                                    </span>
+                                    </td>
+                                  </ng-container> 
+                                  
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/case-details/', row._id]"></tr>
+            
+                                  </table>
+                                </div>
+                          </div>
+                        </div>
+
+                        <div class="tab-pane fade show active" style="	padding-left: 20px;"  id="nav-recentWork" role="tabpanel" aria-labelledby="nav-recentWork-tab">
+                            <div class="container" >
+                                <div class="example-container">
+                                      
+                                  <table mat-table #table [dataSource]="dataSource">
+
+                                    <ng-container matColumnDef="id">
+                                        <th mat-header-cell *matHeaderCellDef> ID</th>
+                                        <td mat-cell *matCellDef="let element"  class="statusClass">I-{{element._id.substring(15,21)}} </td>
+                                    </ng-container>
+                                    <div class="vl"></div>
+                                    <ng-container matColumnDef="type">
+                                      <th mat-header-cell *matHeaderCellDef> Type </th>
+                                      <td mat-cell *matCellDef="let element"> {{element.CallType}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="status">
+                                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                                      <td mat-cell *matCellDef="let element" class="memberid-col"> {{element.status}} </td>
+                                    </ng-container>
+                                    
+                                    <ng-container matColumnDef="createdon">
+                                      <th mat-header-cell *matHeaderCellDef> Created On</th>
+                                      <td mat-cell *matCellDef="let element"> {{element.updated_date.substring(0,19)}} </td>
+                                    </ng-container>
+          
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns1;" [routerLink]="['/member-details/', row._id]"></tr>
+            
+                                  </table>
+                                </div>
+                            </div>
+                          </div>
+              
+              
+                        <div class="tab-pane fade show" id="nav-workBasket" role="tabpanel" aria-labelledby="nav-workBasket-tab">
+                          <div class="container" >
+                              
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+            </div>
+
+
+            <!-- ///////////////////////////////////////////////////////////////////////////////// -->
+
+            <div class="tab-pane fade show" id="nav-manager" role="tabpanel" aria-labelledby="nav-manager-tab">
+              
+            
+            
+            </div>
+
+
+             <!-- ///////////////////////////////////////////////////////////////////////////////// -->
+
+             <div class="tab-pane fade show" id="nav-audit" role="tabpanel" aria-labelledby="nav-audit-tab">
+                <label style="margin-left: 50px; color: #2983C8">Audit Search</label>
+                                    <table cellspacing="10" style="margin-left: 50px;">
+                                            <tr>
+                                                <td>
+                                                    <span class="contentHead">Search By</span><br>
+                                                    <span class="contentResult"><select>
+                                                            <option value="select">Search By Member ID</option>
+                                                          </select></span>
+                                                </td>
+                                                <td>
+                                                    <span class="contentHead">Search For</span><br>
+                                                    <span class="contentResult"><input type="text" [(ngModel)]="memId"/> </span>
+                                                </td>
+                                                <td>
+                                                    <span class="contentHead"></span><br>
+                                                    <span class="contentResult"><button class="searchButton" (click)="searchId()">Search</button> </span>
+                                                </td>
+                                                <td>
+                                                    <span class="contentHead"></span><br>
+                                                    <span class="contentResult"><button class="clearButton">Clear</button> </span>
+                                                </td>
+                                                <td>
+    
+                                                </td>
+                                                <td>
+    
+                                                </td>
+                                            </tr><br>
+                                        </table>
+                                        <div style="margin-left: 50px">
+                                            <input type="checkbox"/>  Create Case
+                                            <input style="margin-left: 10px" type="checkbox"/> Case Transaction
+                                            <input style="margin-left: 10px" type="checkbox"/> Update Case
+                                            <input style="margin-left: 10px" type="checkbox"/> Non-Case Transaction
+                                            <input style="margin-left: 10px" type="checkbox"/> Interactions        
+                                        </div>
+                                        <br>
+
+
+
+                                        <!-- <table mat-table #table [dataSource]="dataSource1" style="margin: 20px;border: 1px solid #eeee;">
+            
+            
+                                          <ng-container matColumnDef="workid">
+                                              <th mat-header-cell *matHeaderCellDef> Work ID</th>
+                                              <td mat-cell *matCellDef="let element" class="statusClass"> A-{{element._id.substring(15,21)}}  </td>
+                                          </ng-container>
+                                          <div class="vl"></div>
+                                          <ng-container matColumnDef="crmid">
+                                            <th mat-header-cell *matHeaderCellDef> CRM ID </th>
+                                            <td mat-cell *matCellDef="let element" class="statusClass" > I-{{element._id.substring(8,14)}}  </td>
+                                          </ng-container>
+                                          <ng-container matColumnDef="mmsid">
+                                            <th mat-header-cell *matHeaderCellDef> MMS ID </th>
+                                            <td mat-cell *matCellDef="let element" class="statusClass">UM{{element._id.substring(15,21)}} </td>
+                                          </ng-container>
+                                          
+                                          <ng-container matColumnDef="date">
+                                            <th mat-header-cell *matHeaderCellDef> Create Date & Time of Work ID </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.startdate}} </td>
+                                          </ng-container>
+                  
+                                        <ng-container matColumnDef="case">
+                                          <th mat-header-cell *matHeaderCellDef> Case/Non-Case </th>
+                                          <td mat-cell *matCellDef="let element">Case</td>
+                                        </ng-container> 
+                                        
+                                          <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                                          <tr mat-row *matRowDef="let row; columns: displayedColumns2;" [routerLink]="['/case-details/', row._id]"></tr>
+                  
+                                        </table> -->
+              
+              </div>
+  
+  
+               <!-- ///////////////////////////////////////////////////////////////////////////////// -->
+
+               <div class="tab-pane fade show" id="nav-fax" role="tabpanel" aria-labelledby="nav-fax-tab">
+              
+            
+            
+                </div>
+
+          </div>
+        </div>
+
+</div>
+
+</main>
+
+
+
+
+
+
+
+
+
+

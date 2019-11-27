@@ -1,0 +1,53 @@
+<!-- <body>
+    <form (ngSubmit)="OnSubmit(f)" class="form-container" #f="ngForm" (keyup.enter)="login()">
+        <div class="loginDiv">
+            <label class="labelDiv"><i>Enterprise UM Intake</i></label><br>
+            <img src="../../assets/logo_anthem.png" class="logo"><br><br>
+            <input type="text" name="emailId" [ngModel]="config?.emailId" required id="emailId"  placeholder="Email"><br>
+            <input type="password" name="password" [ngModel]="config?.password" required id="password"  placeholder="Password"><br>
+            <button type="submit"  [disabled]="f.invalid">Next</button>
+        </div>
+    </form>    
+</body> -->
+
+
+<section class="mainLoginBody">
+    <form class="form-container" (ngSubmit)="OnSubmit(f)" #f="ngForm">
+      <div class="form-group">
+        <div>
+          <!-- <h1>UST GLOBAL</h1> -->
+          <h3>Provider Dashboard</h3>
+          <hr />
+          <h5>Sign In</h5>
+        </div>
+      </div>
+      <div class="form-group" style="width: 75%;">
+        <input
+          name="emailId"
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          [ngModel]="config?.emailId" 
+          id="emailId"
+        />      
+      </div>
+  
+      <div class="form-group" style="width: 75%;">
+        <input
+          name="password"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          [ngModel]="config?.password"
+          id="password"
+        />
+      </div>
+  
+      <div class="signIn" style="width: 75%; margin-left: 11%;text-align: center">
+        <button type="submit" class="btn">
+          Login
+        </button>    
+      </div>
+    </form>
+  </section>
+  
