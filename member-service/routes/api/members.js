@@ -23,10 +23,10 @@ router.post('/create', (req, res) => {
       });
 
       member.save().then(member => {
-        if (members) {
-          res.status(200).json(members);
+        if (member) {
+          res.status(200).json({ MSG: 'MEMBER CREATED SUCCESSFULLY ' });
         } else {
-          res.status(404).json({ MSG: 'MEMBER CREATED SUCCESSFULLY ' });
+          res.status(404).json({ MSG: 'MEMBER NOT CREATED SUCCESSFULLY ' });
         }
       });
     }
